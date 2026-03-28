@@ -77,6 +77,13 @@ body {
     text-align: center;
 }
 
+.nav-item-mobile{
+    color: white;
+    text-decoration: none;
+    font-size: 2vh;
+    font-family: font;
+}
+
 .logo {
     display: block;
     width: 14vh;
