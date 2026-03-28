@@ -72,7 +72,7 @@ body {
 
     color: white;
     text-decoration: none;
-    font-size: 2vh;
+    font-size: 1.7vh;
     font-family: font;
     text-align: center;
 }
@@ -88,6 +88,18 @@ body {
     display: block;
     width: 14vh;
     height: auto;
+}
+
+.instagram-link {
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.instagram-icon {
+  width: 3vh;
+  display: block;
 }
 
 .menu-button {
@@ -166,6 +178,10 @@ body {
     }
 
     .menu-button {
+        display: block;
+    }
+
+    .instagram-icon {
         display: block;
     }
 }
