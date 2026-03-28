@@ -65,44 +65,70 @@
   </div>
 
   <script>
-    const menuButton = document.getElementById("menuButton");
-    const closeButton = document.getElementById("closeButton");
-    const sideMenu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
-    const bigLogo = document.querySelector(".logo-big");
-    const selectionBar = document.querySelector(".selection-bar");
+  const menuButton = document.getElementById("menuButton");
+  const closeButton = document.getElementById("closeButton");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
 
-    function openMenu() {
-      sideMenu.classList.add("open");
-      sideMenu.setAttribute("aria-hidden", "false");
-      overlay.classList.add("show");
-    }
+  const bigLogo = document.querySelector(".logo-big");
+  const selectionBar = document.querySelector(".selection-bar");
 
-    function closeMenu() {
-      sideMenu.classList.remove("open");
-      sideMenu.setAttribute("aria-hidden", "true");
-      overlay.classList.remove("show");
-    }
+  let fadeEnd = 0;
+  let logoCenterY = 0;
 
-    function updateBigLogo() {
-      const scrollY = window.scrollY;
-      const fadeEnd = selectionBar.offsetTop;
+  function openMenu() {
+    sideMenu.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+    overlay.classList.add("show");
+  }
 
-      let opacity = 1 - scrollY / fadeEnd;
-      opacity = Math.max(0, Math.min(1, opacity));
-      bigLogo.style.opacity = opacity;
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("show");
+  }
 
-      const centerY = Math.max(0, (fadeEnd - scrollY) / 2);
-      bigLogo.style.top = centerY + "px";
-    }
+  function setInitialLogoPosition() {
+    fadeEnd = selectionBar.getBoundingClientRect().top + window.scrollY;
+    logoCenterY = fadeEnd / 2;
 
-    menuButton.addEventListener("click", openMenu);
-    closeButton.addEventListener("click", closeMenu);
-    overlay.addEventListener("click", closeMenu);
+    bigLogo.style.top = logoCenterY + "px";
+  }
 
-    window.addEventListener("scroll", updateBigLogo);
-    window.addEventListener("resize", updateBigLogo);
-    window.addEventListener("load", updateBigLogo);
-  </script>
+  function updateLogoOpacity() {
+    const scrollY = window.scrollY;
+
+    let opacity = 1 - scrollY / fadeEnd;
+    opacity = Math.max(0, Math.min(1, opacity));
+
+    bigLogo.style.opacity = opacity;
+  }
+
+  function initLogo() {
+  setInitialLogoPosition();
+
+  bigLogo.style.visibility = "visible";
+
+  // start from 0 → fade to correct opacity
+  requestAnimationFrame(() => {
+    updateLogoOpacity();
+  });
+  }
+
+  menuButton.addEventListener("click", openMenu);
+  closeButton.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  window.addEventListener("scroll", updateLogoOpacity);
+
+  window.addEventListener("load", () => {
+    requestAnimationFrame(initLogo);
+  });
+
+  window.addEventListener("resize", () => {
+    setInitialLogoPosition();
+    updateLogoOpacity();
+  });
+</script>
 </body>
 </html>
