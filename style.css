@@ -25,10 +25,13 @@ body {
 ========================= */
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  z-index: 0;
 }
 
 .header-video {
@@ -41,24 +44,25 @@ body {
 
 .logo-big {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50vw; /* desktop + landscape baseline */
+  transform: translateX(-50%);
+  width: 50vw;
   max-width: 34rem;
-
-  opacity: 0;
-  animation: fadeInLogo 1s ease forwards;
-  animation-delay: 1.5s;
+  opacity: 1;
+  pointer-events: none;
+  will-change: top, opacity;
+  transition: opacity 0.08s linear, top 0.08s linear;
 }
 
-@keyframes fadeInLogo {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* =========================
+   PAGE CONTENT OFFSET
+========================= */
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 56.25vw;
 }
 
 /* =========================
@@ -68,7 +72,6 @@ body {
 .selection-bar {
   position: sticky;
   top: 0;
-  bottom: 0;
   z-index: 100;
 
   width: 100%;
@@ -154,11 +157,6 @@ body {
   width: clamp(1.25rem, 2vw, 1.75rem);
   height: auto;
   opacity: 1;
-  transition: opacity 0.2s ease;
-}
-
-.instagram-icon:hover {
-  opacity: 1;
 }
 
 /* =========================
@@ -197,14 +195,14 @@ body {
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.6rem, 6vw, 2.6rem);
+  gap: clamp(1.8rem, 7vw, 2.8rem);
 }
 
 .mobile-nav a {
   color: white;
   text-decoration: none;
   font-family: font;
-  font-size: clamp(1.5rem, 6vw, 2.4rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.5rem);
   line-height: 1.15;
 }
 
@@ -284,14 +282,6 @@ body {
 
   .instagram-icon {
     width: clamp(1.5rem, 4vw, 1.9rem);
-  }
-
-  .mobile-nav {
-    gap: clamp(1.8rem, 7vw, 2.8rem);
-  }
-
-  .mobile-nav a {
-    font-size: clamp(1.6rem, 6.5vw, 2.5rem);
   }
 }
 
