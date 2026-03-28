@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LILAC</title>
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=5">
 </head>
 <body>
   <header class="header">
@@ -16,7 +16,9 @@
   </header>
 
   <div class="page-content">
-    <div class="selection-bar">
+    <div class="selection-bar-placeholder" id="selectionBarPlaceholder"></div>
+
+    <div class="selection-bar" id="selectionBar">
       <button class="menu-button" id="menuButton" aria-label="Open menu">
         ☰
       </button>
@@ -65,70 +67,97 @@
   </div>
 
   <script>
-  const menuButton = document.getElementById("menuButton");
-  const closeButton = document.getElementById("closeButton");
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
+    const menuButton = document.getElementById("menuButton");
+    const closeButton = document.getElementById("closeButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
 
-  const bigLogo = document.querySelector(".logo-big");
-  const selectionBar = document.querySelector(".selection-bar");
+    const bigLogo = document.querySelector(".logo-big");
+    const header = document.querySelector(".header");
+    const selectionBar = document.getElementById("selectionBar");
+    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
 
-  let fadeEnd = 0;
-  let logoCenterY = 0;
+    let fadeEnd = 0;
 
-  function openMenu() {
-    sideMenu.classList.add("open");
-    sideMenu.setAttribute("aria-hidden", "false");
-    overlay.classList.add("show");
-  }
+    function openMenu() {
+      sideMenu.classList.add("open");
+      sideMenu.setAttribute("aria-hidden", "false");
+      overlay.classList.add("show");
+    }
 
-  function closeMenu() {
-    sideMenu.classList.remove("open");
-    sideMenu.setAttribute("aria-hidden", "true");
-    overlay.classList.remove("show");
-  }
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      sideMenu.setAttribute("aria-hidden", "true");
+      overlay.classList.remove("show");
+    }
 
-  function setInitialLogoPosition() {
-    fadeEnd = selectionBar.getBoundingClientRect().top + window.scrollY;
-    logoCenterY = fadeEnd / 2;
+    function setInitialLogoPosition() {
+      fadeEnd = header.offsetHeight;
+      const logoCenterY = fadeEnd / 2;
+      bigLogo.style.top = logoCenterY + "px";
+    }
 
-    bigLogo.style.top = logoCenterY + "px";
-  }
+    function updateLogoOpacity() {
+      const scrollY = window.scrollY;
 
-  function updateLogoOpacity() {
-    const scrollY = window.scrollY;
+      let opacity = 1 - scrollY / fadeEnd;
+      opacity = Math.max(0, Math.min(1, opacity));
 
-    let opacity = 1 - scrollY / fadeEnd;
-    opacity = Math.max(0, Math.min(1, opacity));
+      bigLogo.style.opacity = opacity;
+    }
 
-    bigLogo.style.opacity = opacity;
-  }
+    function updateSelectionBarPosition() {
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
+      const barHeight = selectionBar.offsetHeight;
+      const viewportHeight = window.innerHeight;
 
-  function initLogo() {
-  setInitialLogoPosition();
+      const naturalTop = headerHeight - scrollY;
 
-  bigLogo.style.visibility = "visible";
+      selectionBar.classList.remove("stick-bottom", "stick-top");
+      selectionBarPlaceholder.classList.remove("active");
 
-  // start from 0 → fade to correct opacity
-  requestAnimationFrame(() => {
-    updateLogoOpacity();
-  });
-  }
+      if (naturalTop > viewportHeight - barHeight) {
+        selectionBar.classList.add("stick-bottom");
+        selectionBarPlaceholder.classList.add("active");
+      } else if (naturalTop <= 0) {
+        selectionBar.classList.add("stick-top");
+        selectionBarPlaceholder.classList.add("active");
+      }
+    }
 
-  menuButton.addEventListener("click", openMenu);
-  closeButton.addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
+    function initLogo() {
+      setInitialLogoPosition();
+      bigLogo.style.visibility = "visible";
 
-  window.addEventListener("scroll", updateLogoOpacity);
+      requestAnimationFrame(() => {
+        updateLogoOpacity();
+      });
+    }
 
-  window.addEventListener("load", () => {
-    requestAnimationFrame(initLogo);
-  });
+    function handleScrollEffects() {
+      updateLogoOpacity();
+      updateSelectionBarPosition();
+    }
 
-  window.addEventListener("resize", () => {
-    setInitialLogoPosition();
-    updateLogoOpacity();
-  });
-</script>
+    menuButton.addEventListener("click", openMenu);
+    closeButton.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    window.addEventListener("scroll", handleScrollEffects);
+
+    window.addEventListener("load", () => {
+      requestAnimationFrame(() => {
+        initLogo();
+        updateSelectionBarPosition();
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      setInitialLogoPosition();
+      updateLogoOpacity();
+      updateSelectionBarPosition();
+    });
+  </script>
 </body>
 </html>
