@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LILAC</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LILAC</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header class="header">
-        <video autoplay muted loop playsinline class="header-video">
-            <source src="./videos/LILAC Web Video.mp4" type="video/mp4">
-        </video>
-    </header>
+  <header class="header">
+    <video autoplay muted loop playsinline class="header-video">
+      <source src="./videos/Lilac Web Video.mp4" type="video/mp4">
+    </video>
+  </header>
 
-    <div class="selection-bar">
-    </div>
-    <div class="content">
-    </div>
+  <div class="selection-bar">
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+      ☰
+    </button>
+
+    <nav class="desktop-nav">
+      <a href="#">HOME</a>
+      <a href="#">SHOP</a>
+      <a href="#"><img src="./images/Logo.png" class="logo"></a>
+      <a href="#">DATES</a>
+      <a href="#">MEDIA</a>
+    </nav>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <button class="close-button" id="closeButton" aria-label="Close menu">
+      ✕
+    </button>
+
+    <nav class="mobile-nav">
+      <a href="#">HOME</a>
+      <a href="#">SHOP</a>
+      <a href="#">DATES</a>
+      <a href="#">MEDIA</a>
+    </nav>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="content"></div>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const closeButton = document.getElementById("closeButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+
+    function openMenu() {
+      sideMenu.classList.add("open");
+      overlay.classList.add("show");
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      overlay.classList.remove("show");
+    }
+
+    menuButton.addEventListener("click", openMenu);
+    closeButton.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+  </script>
 
 </body>
 </html>
