@@ -67,97 +67,92 @@
   </div>
 
   <script>
-    const menuButton = document.getElementById("menuButton");
-    const closeButton = document.getElementById("closeButton");
-    const sideMenu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
+  const menuButton = document.getElementById("menuButton");
+  const closeButton = document.getElementById("closeButton");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
 
-    const bigLogo = document.querySelector(".logo-big");
-    const header = document.querySelector(".header");
-    const selectionBar = document.getElementById("selectionBar");
-    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+  const bigLogo = document.querySelector(".logo-big");
+  const selectionBar = document.getElementById("selectionBar");
+  const header = document.querySelector(".header");
 
-    let fadeEnd = 0;
+  let fadeEnd = 0;
 
-    function openMenu() {
-      sideMenu.classList.add("open");
-      sideMenu.setAttribute("aria-hidden", "false");
-      overlay.classList.add("show");
+  function openMenu() {
+    sideMenu.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+    overlay.classList.add("show");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("show");
+  }
+
+  function updateSelectionBarPosition() {
+    const scrollY = window.scrollY;
+    const headerHeight = header.offsetHeight;
+    const barHeight = selectionBar.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    const naturalTop = headerHeight - scrollY;
+
+    selectionBar.classList.remove("stick-bottom", "stick-top");
+
+    if (naturalTop > viewportHeight - barHeight) {
+      selectionBar.classList.add("stick-bottom");
+    } else if (naturalTop <= 0) {
+      selectionBar.classList.add("stick-top");
     }
+  }
 
-    function closeMenu() {
-      sideMenu.classList.remove("open");
-      sideMenu.setAttribute("aria-hidden", "true");
-      overlay.classList.remove("show");
-    }
+  function setInitialLogoSetup() {
+    /* first make sure the bar is in its correct initial state */
+    updateSelectionBarPosition();
 
-    function setInitialLogoPosition() {
-      fadeEnd = header.offsetHeight;
-      const logoCenterY = fadeEnd / 2;
-      bigLogo.style.top = logoCenterY + "px";
-    }
+    /* use the bar's REAL initial top position in the viewport */
+    const initialBarTop = selectionBar.getBoundingClientRect().top;
 
-    function updateLogoOpacity() {
-      const scrollY = window.scrollY;
+    /* logo stays fixed at the middle between screen top and bar top */
+    bigLogo.style.top = (initialBarTop / 2) + "px";
 
-      let opacity = 1 - scrollY / fadeEnd;
-      opacity = Math.max(0, Math.min(1, opacity));
+    /* fade distance = exactly until bar reaches the top */
+    fadeEnd = initialBarTop;
+  }
 
-      bigLogo.style.opacity = opacity;
-    }
+  function updateLogoOpacity() {
+    const scrollY = window.scrollY;
 
-    function updateSelectionBarPosition() {
-      const scrollY = window.scrollY;
-      const headerHeight = header.offsetHeight;
-      const barHeight = selectionBar.offsetHeight;
-      const viewportHeight = window.innerHeight;
+    let opacity = 1 - (scrollY / fadeEnd);
+    opacity = Math.max(0, Math.min(1, opacity));
 
-      const naturalTop = headerHeight - scrollY;
+    bigLogo.style.opacity = opacity;
+  }
 
-      selectionBar.classList.remove("stick-bottom", "stick-top");
-      selectionBarPlaceholder.classList.remove("active");
+  function handleScrollEffects() {
+    updateSelectionBarPosition();
+    updateLogoOpacity();
+  }
 
-      if (naturalTop > viewportHeight - barHeight) {
-        selectionBar.classList.add("stick-bottom");
-        selectionBarPlaceholder.classList.add("active");
-      } else if (naturalTop <= 0) {
-        selectionBar.classList.add("stick-top");
-        selectionBarPlaceholder.classList.add("active");
-      }
-    }
+  menuButton.addEventListener("click", openMenu);
+  closeButton.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
 
-    function initLogo() {
-      setInitialLogoPosition();
+  window.addEventListener("scroll", handleScrollEffects);
+
+  window.addEventListener("load", () => {
+    requestAnimationFrame(() => {
+      setInitialLogoSetup();
       bigLogo.style.visibility = "visible";
-
-      requestAnimationFrame(() => {
-        updateLogoOpacity();
-      });
-    }
-
-    function handleScrollEffects() {
       updateLogoOpacity();
-      updateSelectionBarPosition();
-    }
-
-    menuButton.addEventListener("click", openMenu);
-    closeButton.addEventListener("click", closeMenu);
-    overlay.addEventListener("click", closeMenu);
-
-    window.addEventListener("scroll", handleScrollEffects);
-
-    window.addEventListener("load", () => {
-      requestAnimationFrame(() => {
-        initLogo();
-        updateSelectionBarPosition();
-      });
     });
+  });
 
-    window.addEventListener("resize", () => {
-      setInitialLogoPosition();
-      updateLogoOpacity();
-      updateSelectionBarPosition();
-    });
-  </script>
+  window.addEventListener("resize", () => {
+    setInitialLogoSetup();
+    updateLogoOpacity();
+  });
+</script>
 </body>
 </html>
