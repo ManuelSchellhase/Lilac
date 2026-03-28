@@ -4,54 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LILAC</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=2">
 </head>
 <body>
   <header class="header">
-    <video autoplay muted loop playsinline class="header-video">
+    <video autoplay muted loop playsinline preload="auto" class="header-video">
       <source src="./videos/Lilac Homepage Video.mp4" type="video/mp4">
     </video>
 
-    <img src="./images/Logo Gold.png" class="logo-big">
+    <img src="./images/Logo Gold.png" class="logo-big" alt="LILAC logo">
   </header>
 
   <div class="selection-bar">
     <button class="menu-button" id="menuButton" aria-label="Open menu">
-        ☰
+      ☰
     </button>
 
-    <nav class="desktop-nav">
+    <nav class="desktop-nav" aria-label="Main navigation">
       <a href="#" class="nav-item">HOME</a>
       <a href="#" class="nav-item">SHOP</a>
-      <a href="#" class="nav-item">
-          <img src="./images/Logo.png" class="logo">
+      <a href="#" class="nav-item" aria-label="Home">
+        <img src="./images/Logo.png" class="logo" alt="LILAC">
       </a>
       <a href="#" class="nav-item">DATES</a>
       <a href="#" class="nav-item">MEDIA</a>
     </nav>
 
-    <a href="https://instagram.com/lilac.deathcore" class="instagram-link" target="_blank">
-      <img src="./images/Instagram.svg" class="instagram-icon">
+    <a
+      href="https://instagram.com/lilac.deathcore"
+      class="instagram-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <img src="./images/Instagram.svg" class="instagram-icon" alt="Instagram">
     </a>
-
   </div>
 
-  <div class="side-menu" id="sideMenu">
+  <div class="side-menu" id="sideMenu" aria-hidden="true">
     <button class="close-button" id="closeButton" aria-label="Close menu">
       ✕
     </button>
 
-    <nav class="mobile-nav">
-      <a href="#" class="nav-item-mobile">HOME</a>
-      <a href="#" class="nav-item-mobile">SHOP</a>
-      <a href="#" class="nav-item-mobile">DATES</a>
-      <a href="#" class="nav-item-mobile">MEDIA</a>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#">HOME</a>
+      <a href="#">SHOP</a>
+      <a href="#">DATES</a>
+      <a href="#">MEDIA</a>
     </nav>
   </div>
 
   <div class="overlay" id="overlay"></div>
 
-  <div class="content"></div>
+  <main class="content"></main>
 
   <script>
     const menuButton = document.getElementById("menuButton");
@@ -61,11 +66,13 @@
 
     function openMenu() {
       sideMenu.classList.add("open");
+      sideMenu.setAttribute("aria-hidden", "false");
       overlay.classList.add("show");
     }
 
     function closeMenu() {
       sideMenu.classList.remove("open");
+      sideMenu.setAttribute("aria-hidden", "true");
       overlay.classList.remove("show");
     }
 
@@ -73,6 +80,5 @@
     closeButton.addEventListener("click", closeMenu);
     overlay.addEventListener("click", closeMenu);
   </script>
-
 </body>
 </html>

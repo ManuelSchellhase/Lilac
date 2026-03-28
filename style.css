@@ -1,18 +1,34 @@
+/* =========================
+   FONT
+========================= */
+
 @font-face {
-    font-family: font;
-    src: url(./fonts/CrimsonText-SemiBold.ttf);
+  font-family: font;
+  src: url("./fonts/CrimsonText-SemiBold.ttf");
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: #171717;
+  margin: 0;
+  background-color: #171717;
 }
 
+/* =========================
+   HERO / VIDEO
+========================= */
+
 .header {
-    position: relative;
-    width: 100%;
-    height: 56.25vw;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .header-video {
@@ -24,170 +40,223 @@ body {
 }
 
 .logo-big {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    opacity: 0;
-    animation: fadeInLogo 1s ease forwards;
-    animation-delay: 1.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(12rem, 50vw, 34rem);
+  opacity: 0;
+  animation: fadeInLogo 1s ease forwards;
+  animation-delay: 1.5s;
 }
 
 @keyframes fadeInLogo {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+/* =========================
+   SELECTION BAR
+========================= */
 
 .selection-bar {
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    z-index: 100;
-    width: 100%;
-    height: 16vh;
-    background-color: #171717;
-    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  min-height: clamp(7.5rem, 13vw, 10.5rem);
+  background-color: #171717;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 clamp(1rem, 3vw, 2rem);
+
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.45);
 }
 
+/* =========================
+   DESKTOP NAV
+========================= */
+
 .desktop-nav {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    justify-content: center;
-    gap: 6vw;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 6rem);
 }
 
 .nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    color: white;
-    text-decoration: none;
-    font-size: 1.7vh;
-    font-family: font;
-    text-align: center;
-}
-
-.nav-item-mobile{
-    color: white;
-    text-decoration: none;
-    font-size: 4vh;
-    font-family: font;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: font;
+  font-size: clamp(0.9rem, 1.5vw, 1.35rem);
+  line-height: 1;
 }
 
 .logo {
-    display: block;
-    width: 14vh;
-    height: auto;
+  display: block;
+  width: auto;
+  height: clamp(5rem, 9vw, 7.2rem);
+  max-width: 100%;
 }
 
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-button {
+  position: absolute;
+  left: clamp(1rem, 3vw, 2rem);
+
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1;
+}
+
+/* =========================
+   INSTAGRAM ICON
+========================= */
+
 .instagram-link {
-    position: absolute;
-    right: 5vw;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .instagram-icon {
-    width: 3vh;
-    display: block;
+  display: block;
+  width: clamp(1.25rem, 2vw, 1.75rem);
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
 }
 
-.instagram-icon-mobile {
-    display: none;
-    background: none;
-    border-right: 10vw;
-    width: 25%;
+.instagram-icon:hover {
+  opacity: 1;
 }
 
-.menu-button {
-    display: none;
-    background: none;
-    border-left: 10vw;
-    color: white;
-    font-size: 25%;
-    padding: 0;
-}
+/* =========================
+   SIDE MENU
+========================= */
 
 .side-menu {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 260px;
-    height: 100vh;
-    background-color: #171717;
-    z-index: 300;
-    transition: left 0.3s ease;
-    box-sizing: border-box;
-    padding: 80px 20px 20px 20px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: min(72vw, 20rem);
+  height: 100dvh;
+  background-color: #222;
+  z-index: 300;
+  transition: left 0.3s ease;
+  padding: clamp(4rem, 10vw, 5rem) clamp(1rem, 4vw, 1.5rem);
 }
 
 .side-menu.open {
-    left: 0;
-}
-
-.mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  left: 0;
 }
 
 .close-button {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.2rem);
+  right: clamp(1rem, 3vw, 1.2rem);
+
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1;
 }
 
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 4vw, 1.5rem);
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-family: font;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 200;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 200;
 }
 
 .overlay.show {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
+
+/* =========================
+   CONTENT
+========================= */
 
 .content {
-    width: 100%;
-    height: 100vw;
-    background-color: #171717;
+  width: 100%;
+  min-height: 100vw;
+  background-color: red;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
-    .selection-bar {
-        justify-content: flex-start;
-        height: 30%;
-    }
+  .selection-bar {
+    justify-content: flex-start;
+    min-height: 4.5rem;
+  }
 
-    .desktop-nav {
-        display: none;
-    }
+  .desktop-nav {
+    display: none;
+  }
 
-    .menu-button {
-        display: block;
-    }
+  .menu-button {
+    display: block;
+  }
 
-    .instagram-icon {
-        display: block;
-    }
+  .logo-big {
+    width: clamp(14rem, 70vw, 26rem);
+  }
+
+  .instagram-icon {
+    width: 1.4rem;
+  }
 }
