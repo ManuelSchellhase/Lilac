@@ -1,129 +1,163 @@
+@media (max-width: 768px) {
+    .selection-bar {
+        justify-content: flex-start;
+        height: 70px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
 @font-face {
     font-family: font;
     src: url(./fonts/CrimsonText-SemiBold.ttf);
 }
 
 body {
-  margin: 0;
-  background-color: #171717;
+    margin: 0;
+    background-color: #171717;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 56.25vw;
+    overflow: hidden;
 }
 
 .header-video {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    opacity: 0;
+    animation: fadeInLogo 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .selection-bar {
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  z-index: 100;
-  width: 100%;
-  height: 13vw;
-  background-color: #171717;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    height: 13vw;
+    background-color: #171717;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .desktop-nav {
-  display: flex;
-  gap: 7vw;
-  align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: center;
+    gap: 6vw;
 }
 
-.logo{
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-family: font;
+    text-align: center;
+}
+
+.logo {
     display: block;
     width: 11vw;
-}
-
-.desktop-nav a,
-.mobile-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5vw;
-  font-family: font;
+    height: auto;
 }
 
 .menu-button {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  padding: 0;
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
 }
 
 .side-menu {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100vh;
-  background-color: #222;
-  z-index: 300;
-  transition: left 0.3s ease;
-  box-sizing: border-box;
-  padding: 80px 20px 20px 20px;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    background-color: #222;
+    z-index: 300;
+    transition: left 0.3s ease;
+    box-sizing: border-box;
+    padding: 80px 20px 20px 20px;
 }
 
 .side-menu.open {
-  left: 0;
+    left: 0;
 }
 
 .mobile-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .close-button {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
 }
 
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 200;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 200;
 }
 
 .overlay.show {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 .content {
-  width: 100%;
-  height: 100vw;
-  background-color: red;
-}
-
-@media (max-width: 768px) {
-  .selection-bar {
-    justify-content: flex-start;
-    height: 70px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
+    width: 100%;
+    height: 100vw;
+    background-color: red;
 }
