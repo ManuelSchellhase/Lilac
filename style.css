@@ -105,16 +105,17 @@ body {
 .instagram-icon-mobile {
     display: none;
     background: none;
-    border-right: 5vw;
-    width: 10%;
+    border-right: 10vw;
+    width: 25%;
 }
 
 .menu-button {
     display: none;
     background: none;
-    border-left: 5vw;
+    border-left: 10vw;
     color: white;
-    font-size: 10%;
+    font-size: 25%;
+    padding: 0;
 }
 
 .side-menu {
@@ -175,7 +176,7 @@ body {
 @media (max-width: 768px) {
     .selection-bar {
         justify-content: flex-start;
-        height: 5%;
+        height: 30%;
     }
 
     .desktop-nav {
