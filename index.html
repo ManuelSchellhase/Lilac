@@ -11,7 +11,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=9">
+  <link rel="stylesheet" href="./style.css?v=10">
 </head>
 <body id="top">
   <header class="header" id="hero">
@@ -265,11 +265,12 @@
   const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
 
   swipeFrames.forEach(frame => {
+    const viewport = frame.querySelector(".product-image-viewport");
     const dots = frame.querySelectorAll(".dot");
 
-    frame.addEventListener("scroll", () => {
-      const maxScroll = frame.scrollWidth - frame.clientWidth;
-      const secondActive = frame.scrollLeft > maxScroll / 2;
+    viewport.addEventListener("scroll", () => {
+      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      const secondActive = viewport.scrollLeft > maxScroll / 2;
 
       dots.forEach(dot => dot.classList.remove("active"));
 
