@@ -82,10 +82,15 @@
                   <img src="./images/HoodieSpine1.png" alt="Hoodie Spine front" class="product-image">
                   <img src="./images/HoodieSpine2.png" alt="Hoodie Spine back" class="product-image">
                 </div>
+
+                <div class="product-dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
             </a>
             <h3 class="product-name">Hoodie Spine</h3>
-            <p class="product-price">€49.99</p>
+            <p class="product-price">€45.00</p>
           </article>
 
           <article class="product-card">
@@ -97,7 +102,7 @@
               </div>
             </a>
             <h3 class="product-name">T-Shirt Misery</h3>
-            <p class="product-price">€29.99</p>
+            <p class="product-price">€22.00</p>
           </article>
 
           <article class="product-card">
@@ -107,10 +112,15 @@
                   <img src="./images/CDWhereEmptinessReigns1.png" alt="CD Where Emptiness Reigns cover" class="product-image">
                   <img src="./images/CDWhereEmptinessReigns2.png" alt="CD Where Emptiness Reigns inside" class="product-image">
                 </div>
+
+                <div class="product-dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
             </a>
             <h3 class="product-name">Where Emptiness Reigns CD</h3>
-            <p class="product-price">€12.99</p>
+            <p class="product-price">€12.00</p>
           </article>
         </div>
       </section>
@@ -246,6 +256,25 @@
   window.addEventListener("resize", () => {
     updateSelectionBarPosition();
     updateLogoOpacity();
+  });
+
+  const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
+
+  swipeFrames.forEach(frame => {
+    const dots = frame.querySelectorAll(".dot");
+
+    frame.addEventListener("scroll", () => {
+      const maxScroll = frame.scrollWidth - frame.clientWidth;
+      const secondActive = frame.scrollLeft > maxScroll / 2;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+
+      if (secondActive) {
+        dots[1].classList.add("active");
+      } else {
+        dots[0].classList.add("active");
+      }
+    });
   });
 </script>
 </body>

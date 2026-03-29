@@ -126,6 +126,11 @@ body {
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background-color: #111;
+  position: relative;
+}
+
+.product-dots {
+  display: none;
 }
 
 .product-image-track {
@@ -464,6 +469,29 @@ body {
 
   .product-image-frame.has-two-images:hover .product-image-track {
     transform: none;
+  }
+
+  .product-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 0.7rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.45rem;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+  }
+
+  .dot.active {
+    opacity: 1;
   }
 
 }
