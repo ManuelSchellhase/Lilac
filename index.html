@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LILAC</title>
-  <link rel="stylesheet" href="./style.css?v=7">
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+
+  <link rel="stylesheet" href="./style.css?v=9">
 </head>
 <body id="top">
   <header class="header" id="hero">
@@ -24,16 +31,16 @@
       </button>
 
       <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#hero" class="nav-item">HOME</a>
-        <a href="#shop" class="nav-item">SHOP</a>
-        <a href="#hero" class="nav-item" aria-label="Home">
+        <a href="#" class="nav-item home-link">HOME</a>
+        <a href="#" class="nav-item shop-link">SHOP</a>
+        <a href="#" class="nav-item home-link" aria-label="Home">
           <img src="./images/Logo.png" class="logo" alt="LILAC">
         </a>
         <a href="#" class="nav-item">DATES</a>
         <a href="#" class="nav-item">MEDIA</a>
       </nav>
 
-      <a href="#hero" class="mobile-logo-link" aria-label="Home">
+      <a href="#" class="mobile-logo-link home-link" aria-label="Home">
         <img src="./images/Logo.png" class="mobile-logo" alt="LILAC">
       </a>
 
@@ -54,8 +61,8 @@
       </button>
 
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <a href="#hero">HOME</a>
-        <a href="#shop">SHOP</a>
+        <a href="#" class="home-link">HOME</a>
+        <a href="#" class="shop-link">SHOP</a>
         <a href="#">DATES</a>
         <a href="#">MEDIA</a>
       </nav>
@@ -122,7 +129,8 @@
   const header = document.querySelector(".header");
   const shopSection = document.getElementById("shop");
 
-  const homeLinks = document.querySelectorAll('a[href="#hero"]');
+  const homeLinks = document.querySelectorAll(".home-link");
+  const shopLinks = document.querySelectorAll(".shop-link");
 
   let fadeEnd = 0;
 
@@ -168,20 +176,14 @@
     updateSelectionBarPosition();
 
     const initialBarTop = selectionBar.getBoundingClientRect().top;
-
-    /* set logo position once */
     bigLogo.style.top = (initialBarTop / 2) + "px";
-
-    /* fade distance stays fixed too */
     fadeEnd = Math.max(initialBarTop, 1);
   }
 
   function updateLogoOpacity() {
     const scrollY = window.scrollY;
-
     let opacity = 1 - (scrollY / fadeEnd);
     opacity = Math.max(0, Math.min(1, opacity));
-
     bigLogo.style.opacity = opacity;
   }
 
@@ -193,8 +195,27 @@
 
   function goToHero(event) {
     event.preventDefault();
+    closeMenu();
+
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+
     window.scrollTo({
       top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  function goToShop(event) {
+    event.preventDefault();
+    closeMenu();
+
+    const barHeight = selectionBar.offsetHeight;
+    const shopTop = shopSection.getBoundingClientRect().top + window.scrollY - barHeight;
+
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+
+    window.scrollTo({
+      top: shopTop,
       behavior: "smooth"
     });
   }
@@ -207,15 +228,13 @@
     link.addEventListener("click", goToHero);
   });
 
+  shopLinks.forEach(link => {
+    link.addEventListener("click", goToShop);
+  });
+
   window.addEventListener("scroll", handleScrollEffects, { passive: true });
 
-  window.addEventListener("load", () => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-
-    window.scrollTo(0, 0);
-
+  document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
       setInitialLogoSetup();
       bigLogo.style.visibility = "visible";
@@ -224,7 +243,6 @@
     });
   });
 
-  /* only keep fade synced on resize — do not recalculate logo position */
   window.addEventListener("resize", () => {
     updateSelectionBarPosition();
     updateLogoOpacity();
