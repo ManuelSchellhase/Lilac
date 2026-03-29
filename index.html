@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LILAC</title>
-  <link rel="stylesheet" href="./style.css?v=6">
+  <link rel="stylesheet" href="./style.css?v=7">
 </head>
 <body id="top">
   <header class="header" id="hero">
@@ -111,118 +111,118 @@
   </div>
 
   <script>
-  const menuButton = document.getElementById("menuButton");
-  const closeButton = document.getElementById("closeButton");
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
+    const menuButton = document.getElementById("menuButton");
+    const closeButton = document.getElementById("closeButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
 
-  const bigLogo = document.querySelector(".logo-big");
-  const selectionBar = document.getElementById("selectionBar");
-  const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
-  const header = document.querySelector(".header");
-  const shopSection = document.getElementById("shop");
+    const bigLogo = document.querySelector(".logo-big");
+    const selectionBar = document.getElementById("selectionBar");
+    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+    const header = document.querySelector(".header");
+    const shopSection = document.getElementById("shop");
 
-  const homeLinks = document.querySelectorAll('a[href="#hero"]');
+    const homeLinks = document.querySelectorAll('a[href="#hero"]');
 
-  let fadeEnd = 0;
+    let fadeEnd = 0;
 
-  function openMenu() {
-    sideMenu.classList.add("open");
-    sideMenu.setAttribute("aria-hidden", "false");
-    overlay.classList.add("show");
-  }
-
-  function closeMenu() {
-    sideMenu.classList.remove("open");
-    sideMenu.setAttribute("aria-hidden", "true");
-    overlay.classList.remove("show");
-  }
-
-  function updateSelectionBarPosition() {
-    const scrollY = window.scrollY;
-    const headerHeight = header.offsetHeight;
-    const barHeight = selectionBar.offsetHeight;
-    const viewportHeight = window.innerHeight;
-
-    const naturalTop = headerHeight - scrollY;
-
-    selectionBar.classList.remove("stick-bottom", "stick-top");
-    selectionBarPlaceholder.classList.remove("active");
-
-    if (naturalTop > viewportHeight - barHeight) {
-      selectionBar.classList.add("stick-bottom");
-      selectionBarPlaceholder.classList.add("active");
-    } else if (naturalTop <= 0) {
-      selectionBar.classList.add("stick-top");
-      selectionBarPlaceholder.classList.add("active");
-    }
-  }
-
-  function revealShopOnFirstScroll() {
-    if (window.scrollY > 0) {
-      shopSection.classList.add("revealed");
-    }
-  }
-
-  function setInitialLogoSetup() {
-    updateSelectionBarPosition();
-
-    const initialBarTop = selectionBar.getBoundingClientRect().top;
-    bigLogo.style.top = (initialBarTop / 2) + "px";
-    fadeEnd = Math.max(initialBarTop, 1);
-  }
-
-  function updateLogoOpacity() {
-    const scrollY = window.scrollY;
-    let opacity = 1 - (scrollY / fadeEnd);
-    opacity = Math.max(0, Math.min(1, opacity));
-    bigLogo.style.opacity = opacity;
-  }
-
-  function handleScrollEffects() {
-    updateSelectionBarPosition();
-    updateLogoOpacity();
-    revealShopOnFirstScroll();
-  }
-
-  function goToHero(event) {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  menuButton.addEventListener("click", openMenu);
-  closeButton.addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
-
-  homeLinks.forEach(link => {
-    link.addEventListener("click", goToHero);
-  });
-
-  window.addEventListener("scroll", handleScrollEffects, { passive: true });
-
-  window.addEventListener("load", () => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
+    function openMenu() {
+      sideMenu.classList.add("open");
+      sideMenu.setAttribute("aria-hidden", "false");
+      overlay.classList.add("show");
     }
 
-    window.scrollTo(0, 0);
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      sideMenu.setAttribute("aria-hidden", "true");
+      overlay.classList.remove("show");
+    }
 
-    requestAnimationFrame(() => {
-      setInitialLogoSetup();
-      bigLogo.style.visibility = "visible";
+    function updateSelectionBarPosition() {
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
+      const barHeight = selectionBar.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      const naturalTop = headerHeight - scrollY;
+
+      selectionBar.classList.remove("stick-bottom", "stick-top");
+      selectionBarPlaceholder.classList.remove("active");
+
+      if (naturalTop > viewportHeight - barHeight) {
+        selectionBar.classList.add("stick-bottom");
+        selectionBarPlaceholder.classList.add("active");
+      } else if (naturalTop <= 0) {
+        selectionBar.classList.add("stick-top");
+        selectionBarPlaceholder.classList.add("active");
+      }
+    }
+
+    function revealShopOnFirstScroll() {
+      if (window.scrollY > 0) {
+        shopSection.classList.add("revealed");
+      }
+    }
+
+    function setInitialLogoSetup() {
+      updateSelectionBarPosition();
+
+      const initialBarTop = selectionBar.getBoundingClientRect().top;
+      bigLogo.style.top = (initialBarTop / 2) + "px";
+      fadeEnd = Math.max(initialBarTop, 1);
+    }
+
+    function updateLogoOpacity() {
+      const scrollY = window.scrollY;
+      let opacity = 1 - (scrollY / fadeEnd);
+      opacity = Math.max(0, Math.min(1, opacity));
+      bigLogo.style.opacity = opacity;
+    }
+
+    function handleScrollEffects() {
+      updateSelectionBarPosition();
       updateLogoOpacity();
       revealShopOnFirstScroll();
-    });
-  });
+    }
 
-  window.addEventListener("resize", () => {
-    setInitialLogoSetup();
-    updateLogoOpacity();
-    updateSelectionBarPosition();
-  });
-</script>
+    function goToHero(event) {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    menuButton.addEventListener("click", openMenu);
+    closeButton.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    homeLinks.forEach(link => {
+      link.addEventListener("click", goToHero);
+    });
+
+    window.addEventListener("scroll", handleScrollEffects, { passive: true });
+
+    window.addEventListener("load", () => {
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+
+      window.scrollTo(0, 0);
+
+      requestAnimationFrame(() => {
+        setInitialLogoSetup();
+        bigLogo.style.visibility = "visible";
+        updateLogoOpacity();
+        revealShopOnFirstScroll();
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      setInitialLogoSetup();
+      updateLogoOpacity();
+      updateSelectionBarPosition();
+    });
+  </script>
 </body>
 </html>
