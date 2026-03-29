@@ -133,7 +133,6 @@
 
   <script>
   const menuButton = document.getElementById("menuButton");
-  const closeButton = document.getElementById("closeButton");
   const sideMenu = document.getElementById("sideMenu");
   const overlay = document.getElementById("overlay");
 
@@ -235,7 +234,6 @@
   }
 
   menuButton.addEventListener("click", openMenu);
-  closeButton.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
 
   homeLinks.forEach(link => {

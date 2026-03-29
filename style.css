@@ -323,7 +323,7 @@ body {
   left: -100%;
   width: min(56vw, 16rem);
   height: 100dvh;
-  background-color: #d9d9d9;
+  background-color: rgba(255, 255, 255, 0.70);
   z-index: 300;
   transition: left 0.3s ease;
   padding: clamp(3.5rem, 8vw, 4.5rem) clamp(0.9rem, 3vw, 1.2rem);
