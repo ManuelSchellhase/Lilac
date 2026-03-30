@@ -153,10 +153,6 @@ body {
   transition: transform 0.45s ease;
 }
 
-.product-image-frame:not(.has-two-images):hover .product-image {
-  transform: scale(1.04);
-}
-
 .product-image-frame.has-two-images .product-image-track {
   width: 200%;
 }
@@ -164,10 +160,6 @@ body {
 .product-image-frame.has-two-images .product-image {
   width: 50%;
   flex: 0 0 50%;
-}
-
-.product-image-frame.has-two-images:hover .product-image-track {
-  transform: translateX(-50%);
 }
 
 .product-name {
@@ -259,10 +251,6 @@ body {
   transition: transform 0.2s ease;
 }
 
-.desktop-nav .nav-item:not(:has(img)):hover {
-  transform: scale(1.08);
-}
-
 .logo {
   display: block;
   width: auto;
@@ -307,10 +295,6 @@ body {
   height: auto;
   opacity: 1;
   transition: transform 0.2s ease;
-}
-
-.instagram-link:hover .instagram-icon {
-  transform: scale(1.08);
 }
 
 /* =========================
@@ -453,7 +437,45 @@ body {
   .instagram-icon {
     width: clamp(1.5rem, 4vw, 1.9rem);
   }
+}
 
+@media (max-width: 768px) and (orientation: landscape) {
+  .selection-bar {
+    min-height: clamp(5.8rem, 12vw, 7rem);
+  }
+
+  .selection-bar-placeholder {
+    min-height: clamp(5.8rem, 12vw, 7rem);
+  }
+
+  .logo-big {
+    width: 48vw;
+  }
+
+  .mobile-nav a {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-image-frame:not(.has-two-images):hover .product-image {
+    transform: scale(1.04);
+  }
+
+  .product-image-frame.has-two-images:hover .product-image-track {
+    transform: translateX(-50%);
+  }
+
+  .desktop-nav .nav-item:not(:has(img)):hover {
+    transform: scale(1.08);
+  }
+
+  .instagram-link:hover .instagram-icon {
+    transform: scale(1.08);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
   .product-image-frame.has-two-images .product-image-viewport {
     overflow-x: auto;
     overflow-y: hidden;
@@ -500,23 +522,5 @@ body {
 
   .dot.active {
     opacity: 1;
-  }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-  .selection-bar {
-    min-height: clamp(5.8rem, 12vw, 7rem);
-  }
-
-  .selection-bar-placeholder {
-    min-height: clamp(5.8rem, 12vw, 7rem);
-  }
-
-  .logo-big {
-    width: 48vw;
-  }
-
-  .mobile-nav a {
-    font-size: clamp(1.4rem, 4vw, 2rem);
   }
 }
