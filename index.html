@@ -418,9 +418,13 @@
       requestAnimationFrame(() => {
         setInitialLogoSetup();
         bigLogo.style.visibility = "visible";
-        updateLogoOpacity();
+        bigLogo.style.opacity = "0";
         revealShopOnFirstScroll();
         syncPreviousHeight();
+
+        setTimeout(() => {
+        updateLogoOpacity();
+        }, 1200);
       });
     });
 
