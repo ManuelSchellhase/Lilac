@@ -320,7 +320,14 @@ body {
 }
 
 .shows-collapsible {
+  max-height: 0;
   overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.3s ease;
+}
+
+.shows-collapsible.open {
+  opacity: 1;
 }
 
 /* =========================

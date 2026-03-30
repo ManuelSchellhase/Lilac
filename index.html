@@ -11,11 +11,21 @@
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=11">
+  <link rel="stylesheet" href="./style.css?v=12">
 </head>
 <body id="top">
   <header class="header" id="hero">
-    <video autoplay muted loop playsinline playsinline preload="auto" class="header-video">
+    <video
+      class="header-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      disablepictureinpicture
+      aria-hidden="true"
+    >
       <source src="./videos/Lilac Homepage Video.mp4" type="video/mp4">
     </video>
 
@@ -134,85 +144,91 @@
         </div>
 
         <div class="shows-group">
-  <button class="shows-toggle" id="previousToggle" type="button" aria-expanded="false" aria-controls="previousShows">
-    <span>PREVIOUS</span>
-    <span class="shows-toggle-icon">▾</span>
-  </button>
+          <button
+            class="shows-toggle"
+            id="previousToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="previousShows"
+          >
+            <span>PREVIOUS</span>
+            <span class="shows-toggle-icon">▾</span>
+          </button>
 
-  <div class="shows-collapsible" id="previousShows" hidden>
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">15.11.2025</span>
-        <span class="show-location">Nürnberg, DE</span>
-        <span class="show-venue">Luise</span>
-      </div>
-    </div>
+          <div class="shows-collapsible" id="previousShows">
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">15.11.2025</span>
+                <span class="show-location">Nürnberg, DE</span>
+                <span class="show-venue">Luise</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">11.10.2025</span>
-        <span class="show-location">Penzberg, DE</span>
-        <span class="show-venue">JUZE</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">11.10.2025</span>
+                <span class="show-location">Penzberg, DE</span>
+                <span class="show-venue">JUZE</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">14.06.2025</span>
-        <span class="show-location">Würzburg, DE</span>
-        <span class="show-venue">b-hof</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">14.06.2025</span>
+                <span class="show-location">Würzburg, DE</span>
+                <span class="show-venue">b-hof</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">05.04.2025</span>
-        <span class="show-location">Königsbrunn, DE</span>
-        <span class="show-venue">Mammut Festival</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">05.04.2025</span>
+                <span class="show-location">Königsbrunn, DE</span>
+                <span class="show-venue">Mammut Festival</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">30.11.2024</span>
-        <span class="show-location">Heidenheim, DE</span>
-        <span class="show-venue">Treff 9</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">30.11.2024</span>
+                <span class="show-location">Heidenheim, DE</span>
+                <span class="show-venue">Treff 9</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">19.10.2024</span>
-        <span class="show-location">Nürnberg, DE</span>
-        <span class="show-venue">Luise</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">19.10.2024</span>
+                <span class="show-location">Nürnberg, DE</span>
+                <span class="show-venue">Luise</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">11.05.2024</span>
-        <span class="show-location">Schwäbisch Hall, DE</span>
-        <span class="show-venue">Club Alpha 60</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">11.05.2024</span>
+                <span class="show-location">Schwäbisch Hall, DE</span>
+                <span class="show-venue">Club Alpha 60</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">10.05.2024</span>
-        <span class="show-location">Dustelkingen, DE</span>
-        <span class="show-venue">Heavydays Festival</span>
-      </div>
-    </div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">10.05.2024</span>
+                <span class="show-location">Dustelkingen, DE</span>
+                <span class="show-venue">Heavydays Festival</span>
+              </div>
+            </div>
 
-    <div class="show-row">
-      <div class="show-info">
-        <span class="show-day">28.10.2023</span>
-        <span class="show-location">Würzburg, DE</span>
-        <span class="show-venue">b-hof</span>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="show-row">
+              <div class="show-info">
+                <span class="show-day">28.10.2023</span>
+                <span class="show-location">Würzburg, DE</span>
+                <span class="show-venue">b-hof</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -221,6 +237,7 @@
     const menuButton = document.getElementById("menuButton");
     const sideMenu = document.getElementById("sideMenu");
     const overlay = document.getElementById("overlay");
+    const headerVideo = document.querySelector(".header-video");
 
     const bigLogo = document.querySelector(".logo-big");
     const selectionBar = document.getElementById("selectionBar");
@@ -233,7 +250,23 @@
     const shopLinks = document.querySelectorAll(".shop-link");
     const showsLinks = document.querySelectorAll(".shows-link");
 
+    const previousToggle = document.getElementById("previousToggle");
+    const previousShows = document.getElementById("previousShows");
+
     let fadeEnd = 0;
+
+    function tryAutoplayVideo() {
+      if (!headerVideo) return;
+
+      headerVideo.muted = true;
+      headerVideo.defaultMuted = true;
+      headerVideo.playsInline = true;
+
+      const playPromise = headerVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    }
 
     function openMenu() {
       sideMenu.classList.add("open");
@@ -336,6 +369,30 @@
       });
     }
 
+    function togglePreviousShows() {
+      const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        previousToggle.setAttribute("aria-expanded", "false");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+
+        requestAnimationFrame(() => {
+          previousShows.style.maxHeight = "0px";
+          previousShows.classList.remove("open");
+        });
+      } else {
+        previousToggle.setAttribute("aria-expanded", "true");
+        previousShows.classList.add("open");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
+    function syncPreviousHeight() {
+      if (previousToggle.getAttribute("aria-expanded") === "true") {
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
     menuButton.addEventListener("click", openMenu);
     overlay.addEventListener("click", closeMenu);
 
@@ -351,20 +408,29 @@
       link.addEventListener("click", goToShows);
     });
 
+    previousToggle.addEventListener("click", togglePreviousShows);
+
     window.addEventListener("scroll", handleScrollEffects, { passive: true });
 
     document.addEventListener("DOMContentLoaded", () => {
+      tryAutoplayVideo();
+
       requestAnimationFrame(() => {
         setInitialLogoSetup();
         bigLogo.style.visibility = "visible";
         updateLogoOpacity();
         revealShopOnFirstScroll();
+        syncPreviousHeight();
       });
     });
+
+    headerVideo.addEventListener("loadedmetadata", tryAutoplayVideo);
+    headerVideo.addEventListener("canplay", tryAutoplayVideo);
 
     window.addEventListener("resize", () => {
       updateSelectionBarPosition();
       updateLogoOpacity();
+      syncPreviousHeight();
     });
 
     const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
@@ -386,21 +452,6 @@
         }
       });
     });
-
-    const previousToggle = document.getElementById("previousToggle");
-const previousShows = document.getElementById("previousShows");
-
-previousToggle.addEventListener("click", () => {
-  const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
-
-  previousToggle.setAttribute("aria-expanded", String(!isOpen));
-
-  if (isOpen) {
-    previousShows.hidden = true;
-  } else {
-    previousShows.hidden = false;
-  }
-});
   </script>
 </body>
 </html>
