@@ -11,11 +11,11 @@
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=10">
+  <link rel="stylesheet" href="./style.css?v=11">
 </head>
 <body id="top">
   <header class="header" id="hero">
-    <video autoplay muted loop playsinline preload="auto" class="header-video">
+    <video autoplay muted loop playsinline playsinline preload="auto" class="header-video">
       <source src="./videos/Lilac Homepage Video.mp4" type="video/mp4">
     </video>
 
@@ -36,8 +36,8 @@
         <a href="#" class="nav-item home-link" aria-label="Home">
           <img src="./images/Logo.png" class="logo" alt="LILAC">
         </a>
-        <a href="#" class="nav-item">DATES</a>
-        <a href="#" class="nav-item">MEDIA</a>
+        <a href="#" class="nav-item media-link">MEDIA</a>
+        <a href="#" class="nav-item shows-link">SHOWS</a>
       </nav>
 
       <a href="#" class="mobile-logo-link home-link" aria-label="Home">
@@ -59,8 +59,8 @@
       <nav class="mobile-nav" aria-label="Mobile navigation">
         <a href="#" class="home-link">HOME</a>
         <a href="#" class="shop-link">SHOP</a>
-        <a href="#">DATES</a>
-        <a href="#">MEDIA</a>
+        <a href="#" class="media-link">MEDIA</a>
+        <a href="#" class="shows-link">SHOWS</a>
       </nav>
     </div>
 
@@ -124,157 +124,283 @@
           </article>
         </div>
       </section>
+
+      <section class="shows-section" id="shows">
+        <h2 class="shows-title">SHOWS</h2>
+
+        <div class="shows-group">
+          <h3 class="shows-subtitle">UPCOMING</h3>
+          <p class="no-dates">No upcoming shows at the moment</p>
+        </div>
+
+        <div class="shows-group">
+  <button class="shows-toggle" id="previousToggle" type="button" aria-expanded="false" aria-controls="previousShows">
+    <span>PREVIOUS</span>
+    <span class="shows-toggle-icon">▾</span>
+  </button>
+
+  <div class="shows-collapsible" id="previousShows" hidden>
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">15.11.2025</span>
+        <span class="show-location">Nürnberg, DE</span>
+        <span class="show-venue">Luise</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">11.10.2025</span>
+        <span class="show-location">Penzberg, DE</span>
+        <span class="show-venue">JUZE</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">14.06.2025</span>
+        <span class="show-location">Würzburg, DE</span>
+        <span class="show-venue">b-hof</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">05.04.2025</span>
+        <span class="show-location">Königsbrunn, DE</span>
+        <span class="show-venue">Mammut Festival</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">30.11.2024</span>
+        <span class="show-location">Heidenheim, DE</span>
+        <span class="show-venue">Treff 9</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">19.10.2024</span>
+        <span class="show-location">Nürnberg, DE</span>
+        <span class="show-venue">Luise</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">11.05.2024</span>
+        <span class="show-location">Schwäbisch Hall, DE</span>
+        <span class="show-venue">Club Alpha 60</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">10.05.2024</span>
+        <span class="show-location">Dustelkingen, DE</span>
+        <span class="show-venue">Heavydays Festival</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-info">
+        <span class="show-day">28.10.2023</span>
+        <span class="show-location">Würzburg, DE</span>
+        <span class="show-venue">b-hof</span>
+      </div>
+    </div>
+  </div>
+</div>
+      </section>
     </main>
   </div>
 
   <script>
-  const menuButton = document.getElementById("menuButton");
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
+    const menuButton = document.getElementById("menuButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
 
-  const bigLogo = document.querySelector(".logo-big");
-  const selectionBar = document.getElementById("selectionBar");
-  const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
-  const header = document.querySelector(".header");
-  const shopSection = document.getElementById("shop");
+    const bigLogo = document.querySelector(".logo-big");
+    const selectionBar = document.getElementById("selectionBar");
+    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+    const header = document.querySelector(".header");
+    const shopSection = document.getElementById("shop");
+    const showsSection = document.getElementById("shows");
 
-  const homeLinks = document.querySelectorAll(".home-link");
-  const shopLinks = document.querySelectorAll(".shop-link");
+    const homeLinks = document.querySelectorAll(".home-link");
+    const shopLinks = document.querySelectorAll(".shop-link");
+    const showsLinks = document.querySelectorAll(".shows-link");
 
-  let fadeEnd = 0;
+    let fadeEnd = 0;
 
-  function openMenu() {
-    sideMenu.classList.add("open");
-    sideMenu.setAttribute("aria-hidden", "false");
-    overlay.classList.add("show");
-  }
-
-  function closeMenu() {
-    sideMenu.classList.remove("open");
-    sideMenu.setAttribute("aria-hidden", "true");
-    overlay.classList.remove("show");
-  }
-
-  function updateSelectionBarPosition() {
-    const scrollY = window.scrollY;
-    const headerHeight = header.offsetHeight;
-    const barHeight = selectionBar.offsetHeight;
-    const viewportHeight = window.innerHeight;
-
-    const naturalTop = headerHeight - scrollY;
-
-    selectionBar.classList.remove("stick-bottom", "stick-top");
-    selectionBarPlaceholder.classList.remove("active");
-
-    if (naturalTop > viewportHeight - barHeight) {
-      selectionBar.classList.add("stick-bottom");
-      selectionBarPlaceholder.classList.add("active");
-    } else if (naturalTop <= 0) {
-      selectionBar.classList.add("stick-top");
-      selectionBarPlaceholder.classList.add("active");
+    function openMenu() {
+      sideMenu.classList.add("open");
+      sideMenu.setAttribute("aria-hidden", "false");
+      overlay.classList.add("show");
     }
-  }
 
-  function revealShopOnFirstScroll() {
-    if (window.scrollY > 0) {
-      shopSection.classList.add("revealed");
+    function closeMenu() {
+      sideMenu.classList.remove("open");
+      sideMenu.setAttribute("aria-hidden", "true");
+      overlay.classList.remove("show");
     }
-  }
 
-  function setInitialLogoSetup() {
-    updateSelectionBarPosition();
+    function updateSelectionBarPosition() {
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
+      const barHeight = selectionBar.offsetHeight;
+      const viewportHeight = window.innerHeight;
 
-    const initialBarTop = selectionBar.getBoundingClientRect().top;
-    bigLogo.style.top = (initialBarTop / 2) + "px";
-    fadeEnd = Math.max(initialBarTop, 1);
-  }
+      const naturalTop = headerHeight - scrollY;
 
-  function updateLogoOpacity() {
-    const scrollY = window.scrollY;
-    let opacity = 1 - (scrollY / fadeEnd);
-    opacity = Math.max(0, Math.min(1, opacity));
-    bigLogo.style.opacity = opacity;
-  }
+      selectionBar.classList.remove("stick-bottom", "stick-top");
+      selectionBarPlaceholder.classList.remove("active");
 
-  function handleScrollEffects() {
-    updateSelectionBarPosition();
-    updateLogoOpacity();
-    revealShopOnFirstScroll();
-  }
+      if (naturalTop > viewportHeight - barHeight) {
+        selectionBar.classList.add("stick-bottom");
+        selectionBarPlaceholder.classList.add("active");
+      } else if (naturalTop <= 0) {
+        selectionBar.classList.add("stick-top");
+        selectionBarPlaceholder.classList.add("active");
+      }
+    }
 
-  function goToHero(event) {
-    event.preventDefault();
-    closeMenu();
+    function revealShopOnFirstScroll() {
+      if (window.scrollY > 0) {
+        shopSection.classList.add("revealed");
+      }
+    }
 
-    history.replaceState(null, "", window.location.pathname + window.location.search);
+    function setInitialLogoSetup() {
+      updateSelectionBarPosition();
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
+      const initialBarTop = selectionBar.getBoundingClientRect().top;
+      bigLogo.style.top = (initialBarTop / 2) + "px";
+      fadeEnd = Math.max(initialBarTop, 1);
+    }
 
-  function goToShop(event) {
-    event.preventDefault();
-    closeMenu();
+    function updateLogoOpacity() {
+      const scrollY = window.scrollY;
+      let opacity = 1 - (scrollY / fadeEnd);
+      opacity = Math.max(0, Math.min(1, opacity));
+      bigLogo.style.opacity = opacity;
+    }
 
-    const barHeight = selectionBar.offsetHeight;
-    const shopTop = shopSection.getBoundingClientRect().top + window.scrollY - barHeight;
-
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-
-    window.scrollTo({
-      top: shopTop,
-      behavior: "smooth"
-    });
-  }
-
-  menuButton.addEventListener("click", openMenu);
-  overlay.addEventListener("click", closeMenu);
-
-  homeLinks.forEach(link => {
-    link.addEventListener("click", goToHero);
-  });
-
-  shopLinks.forEach(link => {
-    link.addEventListener("click", goToShop);
-  });
-
-  window.addEventListener("scroll", handleScrollEffects, { passive: true });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    requestAnimationFrame(() => {
-      setInitialLogoSetup();
-      bigLogo.style.visibility = "visible";
+    function handleScrollEffects() {
+      updateSelectionBarPosition();
       updateLogoOpacity();
       revealShopOnFirstScroll();
+    }
+
+    function goToHero(event) {
+      event.preventDefault();
+      closeMenu();
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function goToShop(event) {
+      event.preventDefault();
+      closeMenu();
+
+      const barHeight = selectionBar.offsetHeight;
+      const shopTop = shopSection.getBoundingClientRect().top + window.scrollY - barHeight;
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: shopTop,
+        behavior: "smooth"
+      });
+    }
+
+    function goToShows(event) {
+      event.preventDefault();
+      closeMenu();
+
+      const barHeight = selectionBar.offsetHeight;
+      const showsTop = showsSection.getBoundingClientRect().top + window.scrollY - barHeight;
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: showsTop,
+        behavior: "smooth"
+      });
+    }
+
+    menuButton.addEventListener("click", openMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    homeLinks.forEach(link => {
+      link.addEventListener("click", goToHero);
     });
-  });
 
-  window.addEventListener("resize", () => {
-    updateSelectionBarPosition();
-    updateLogoOpacity();
-  });
-
-  const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
-
-  swipeFrames.forEach(frame => {
-    const viewport = frame.querySelector(".product-image-viewport");
-    const dots = frame.querySelectorAll(".dot");
-
-    viewport.addEventListener("scroll", () => {
-      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-      const secondActive = viewport.scrollLeft > maxScroll / 2;
-
-      dots.forEach(dot => dot.classList.remove("active"));
-
-      if (secondActive) {
-        dots[1].classList.add("active");
-      } else {
-        dots[0].classList.add("active");
-      }
+    shopLinks.forEach(link => {
+      link.addEventListener("click", goToShop);
     });
-  });
-</script>
+
+    showsLinks.forEach(link => {
+      link.addEventListener("click", goToShows);
+    });
+
+    window.addEventListener("scroll", handleScrollEffects, { passive: true });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        setInitialLogoSetup();
+        bigLogo.style.visibility = "visible";
+        updateLogoOpacity();
+        revealShopOnFirstScroll();
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      updateSelectionBarPosition();
+      updateLogoOpacity();
+    });
+
+    const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
+
+    swipeFrames.forEach(frame => {
+      const viewport = frame.querySelector(".product-image-viewport");
+      const dots = frame.querySelectorAll(".dot");
+
+      viewport.addEventListener("scroll", () => {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        const secondActive = viewport.scrollLeft > maxScroll / 2;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        if (secondActive) {
+          dots[1].classList.add("active");
+        } else {
+          dots[0].classList.add("active");
+        }
+      });
+    });
+
+    const previousToggle = document.getElementById("previousToggle");
+const previousShows = document.getElementById("previousShows");
+
+previousToggle.addEventListener("click", () => {
+  const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+
+  previousToggle.setAttribute("aria-expanded", String(!isOpen));
+
+  if (isOpen) {
+    previousShows.hidden = true;
+  } else {
+    previousShows.hidden = false;
+  }
+});
+  </script>
 </body>
 </html>
