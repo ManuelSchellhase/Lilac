@@ -420,6 +420,7 @@
   let mediaCardStep = 0;
   let mediaOriginalCount = 0;
   let mediaRecenterScheduled = false;
+  let mediaLoopReady = false;
 
   function tryAutoplayVideo() {
     if (!heroVideo) return;
@@ -599,15 +600,19 @@
     requestAnimationFrame(() => {
       updateMediaMetrics();
       mediaViewport.scrollLeft = mediaSetWidth * 3;
+
+      requestAnimationFrame(() => {
+        mediaLoopReady = true;
+      });
     });
   }
 
   function keepMediaLoopCentered() {
-    if (!mediaSetWidth || mediaRecenterScheduled) return;
+    if (!mediaLoopReady || !mediaSetWidth || mediaRecenterScheduled) return;
 
     const current = mediaViewport.scrollLeft;
-    const safeStart = mediaSetWidth * 2;
-    const safeEnd = mediaSetWidth * 4;
+    const safeStart = mediaSetWidth * 1.5;
+    const safeEnd = mediaSetWidth * 4.5;
 
     if (current < safeStart || current > safeEnd) {
       mediaRecenterScheduled = true;
@@ -615,6 +620,7 @@
       requestAnimationFrame(() => {
         const offsetInsideSet =
           ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
+
         mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
         mediaRecenterScheduled = false;
       });
