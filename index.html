@@ -11,10 +11,10 @@
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=15">
+  <link rel="stylesheet" href="./style.css?v=16">
 </head>
-<body id="top">
-  <header class="header" id="hero">
+<body>
+  <header class="header">
     <video
       id="heroVideo"
       class="header-video"
@@ -122,7 +122,6 @@
                     <img src="./images/HoodieSpine2.png" alt="Hoodie Spine back" class="product-image">
                   </div>
                 </div>
-
                 <div class="product-dots">
                   <span class="dot active"></span>
                   <span class="dot"></span>
@@ -154,7 +153,6 @@
                     <img src="./images/CDWhereEmptinessReigns2.png" alt="CD Where Emptiness Reigns inside" class="product-image">
                   </div>
                 </div>
-
                 <div class="product-dots">
                   <span class="dot active"></span>
                   <span class="dot"></span>
@@ -297,89 +295,21 @@
         </div>
 
         <div class="shows-group">
-          <button
-            class="shows-toggle"
-            id="previousToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="previousShows"
-          >
+          <button class="shows-toggle" id="previousToggle" type="button" aria-expanded="false" aria-controls="previousShows">
             <span>PREVIOUS</span>
             <span class="shows-toggle-icon">▾</span>
           </button>
 
           <div class="shows-collapsible" id="previousShows">
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">15.11.2025</span>
-                <span class="show-location">Nürnberg, DE</span>
-                <span class="show-venue">Luise</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">11.10.2025</span>
-                <span class="show-location">Penzberg, DE</span>
-                <span class="show-venue">JUZE</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">14.06.2025</span>
-                <span class="show-location">Würzburg, DE</span>
-                <span class="show-venue">b-hof</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">05.04.2025</span>
-                <span class="show-location">Königsbrunn, DE</span>
-                <span class="show-venue">Mammut Festival</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">30.11.2024</span>
-                <span class="show-location">Heidenheim, DE</span>
-                <span class="show-venue">Treff 9</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">19.10.2024</span>
-                <span class="show-location">Nürnberg, DE</span>
-                <span class="show-venue">Luise</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">11.05.2024</span>
-                <span class="show-location">Schwäbisch Hall, DE</span>
-                <span class="show-venue">Club Alpha 60</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">10.05.2024</span>
-                <span class="show-location">Dustelkingen, DE</span>
-                <span class="show-venue">Heavydays Festival</span>
-              </div>
-            </div>
-
-            <div class="show-row">
-              <div class="show-info">
-                <span class="show-day">28.10.2023</span>
-                <span class="show-location">Würzburg, DE</span>
-                <span class="show-venue">b-hof</span>
-              </div>
-            </div>
+            <div class="show-row"><div class="show-info"><span class="show-day">15.11.2025</span><span class="show-location">Nürnberg, DE</span><span class="show-venue">Luise</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">11.10.2025</span><span class="show-location">Penzberg, DE</span><span class="show-venue">JUZE</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">14.06.2025</span><span class="show-location">Würzburg, DE</span><span class="show-venue">b-hof</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">05.04.2025</span><span class="show-location">Königsbrunn, DE</span><span class="show-venue">Mammut Festival</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">30.11.2024</span><span class="show-location">Heidenheim, DE</span><span class="show-venue">Treff 9</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">19.10.2024</span><span class="show-location">Nürnberg, DE</span><span class="show-venue">Luise</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">11.05.2024</span><span class="show-location">Schwäbisch Hall, DE</span><span class="show-venue">Club Alpha 60</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">10.05.2024</span><span class="show-location">Dustelkingen, DE</span><span class="show-venue">Heavydays Festival</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">28.10.2023</span><span class="show-location">Würzburg, DE</span><span class="show-venue">b-hof</span></div></div>
           </div>
         </div>
       </section>
@@ -387,325 +317,307 @@
   </div>
 
   <script>
-  const menuButton = document.getElementById("menuButton");
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
-  const heroVideo = document.getElementById("heroVideo");
+    const menuButton = document.getElementById("menuButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    const heroVideo = document.getElementById("heroVideo");
 
-  const bigLogo = document.querySelector(".logo-big");
-  const selectionBar = document.getElementById("selectionBar");
-  const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
-  const header = document.querySelector(".header");
-  const shopSection = document.getElementById("shop");
-  const mediaSection = document.getElementById("media");
-  const showsSection = document.getElementById("shows");
+    const bigLogo = document.querySelector(".logo-big");
+    const selectionBar = document.getElementById("selectionBar");
+    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+    const header = document.querySelector(".header");
 
-  const homeLinks = document.querySelectorAll(".home-link");
-  const shopLinks = document.querySelectorAll(".shop-link");
-  const mediaLinks = document.querySelectorAll(".media-link");
-  const showsLinks = document.querySelectorAll(".shows-link");
+    const sections = {
+      shop: document.getElementById("shop"),
+      media: document.getElementById("media"),
+      shows: document.getElementById("shows")
+    };
 
-  const previousToggle = document.getElementById("previousToggle");
-  const previousShows = document.getElementById("previousShows");
+    const previousToggle = document.getElementById("previousToggle");
+    const previousShows = document.getElementById("previousShows");
 
-  const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
+    const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
 
-  const mediaViewport = document.getElementById("mediaViewport");
-  const mediaTrack = document.getElementById("mediaTrack");
-  const mediaPrev = document.getElementById("mediaPrev");
-  const mediaNext = document.getElementById("mediaNext");
+    const mediaViewport = document.getElementById("mediaViewport");
+    const mediaTrack = document.getElementById("mediaTrack");
+    const mediaPrev = document.getElementById("mediaPrev");
+    const mediaNext = document.getElementById("mediaNext");
 
-  let fadeEnd = 0;
-  let mediaSetWidth = 0;
-  let mediaCardStep = 0;
-  let mediaOriginalCount = 0;
-  let mediaRecenterScheduled = false;
-  let mediaLoopReady = false;
+    let fadeEnd = 0;
+    let mediaSetWidth = 0;
+    let mediaCardStep = 0;
+    let mediaOriginalCount = 0;
+    let mediaRecenterScheduled = false;
+    let mediaLoopReady = false;
 
-  function tryAutoplayVideo() {
-    if (!heroVideo) return;
-
-    heroVideo.muted = true;
-    heroVideo.defaultMuted = true;
-    heroVideo.playsInline = true;
-
-    const playPromise = heroVideo.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(() => {});
+    function setMenuState(isOpen) {
+      sideMenu.classList.toggle("open", isOpen);
+      sideMenu.setAttribute("aria-hidden", String(!isOpen));
+      overlay.classList.toggle("show", isOpen);
     }
-  }
 
-  function openMenu() {
-    sideMenu.classList.add("open");
-    sideMenu.setAttribute("aria-hidden", "false");
-    overlay.classList.add("show");
-  }
+    function tryAutoplayVideo() {
+      if (!heroVideo) return;
 
-  function closeMenu() {
-    sideMenu.classList.remove("open");
-    sideMenu.setAttribute("aria-hidden", "true");
-    overlay.classList.remove("show");
-  }
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
 
-  function updateSelectionBarPosition() {
-    const scrollY = window.scrollY;
-    const headerHeight = header.offsetHeight;
-    const barHeight = selectionBar.offsetHeight;
-    const viewportHeight = window.innerHeight;
-
-    const naturalTop = headerHeight - scrollY;
-
-    selectionBar.classList.remove("stick-bottom", "stick-top");
-    selectionBarPlaceholder.classList.remove("active");
-
-    if (naturalTop > viewportHeight - barHeight) {
-      selectionBar.classList.add("stick-bottom");
-      selectionBarPlaceholder.classList.add("active");
-    } else if (naturalTop <= 0) {
-      selectionBar.classList.add("stick-top");
-      selectionBarPlaceholder.classList.add("active");
-    }
-  }
-
-  function revealShopOnFirstScroll() {
-    if (window.scrollY > 0) {
-      shopSection.classList.add("revealed");
-    }
-  }
-
-  function setInitialLogoSetup() {
-    updateSelectionBarPosition();
-    const initialBarTop = selectionBar.getBoundingClientRect().top;
-    bigLogo.style.top = (initialBarTop / 2) + "px";
-    fadeEnd = Math.max(initialBarTop, 1);
-  }
-
-  function updateLogoOpacity() {
-    const scrollY = window.scrollY;
-    let opacity = 1 - (scrollY / fadeEnd);
-    opacity = Math.max(0, Math.min(1, opacity));
-    bigLogo.style.opacity = opacity;
-  }
-
-  function handleScrollEffects() {
-    updateSelectionBarPosition();
-    updateLogoOpacity();
-    revealShopOnFirstScroll();
-  }
-
-  function scrollToSection(section) {
-    const barHeight = selectionBar.offsetHeight;
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
-
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-
-    window.scrollTo({
-      top: sectionTop,
-      behavior: "smooth"
-    });
-  }
-
-  function goToHero(event) {
-    event.preventDefault();
-    closeMenu();
-
-    history.replaceState(null, "", window.location.pathname + window.location.search);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  function goToShop(event) {
-    event.preventDefault();
-    closeMenu();
-    scrollToSection(shopSection);
-  }
-
-  function goToMedia(event) {
-    event.preventDefault();
-    closeMenu();
-    scrollToSection(mediaSection);
-  }
-
-  function goToShows(event) {
-    event.preventDefault();
-    closeMenu();
-    scrollToSection(showsSection);
-  }
-
-  function togglePreviousShows() {
-    const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
-
-    if (isOpen) {
-      previousToggle.setAttribute("aria-expanded", "false");
-      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
-
-      requestAnimationFrame(() => {
-        previousShows.style.maxHeight = "0px";
-        previousShows.classList.remove("open");
-      });
-    } else {
-      previousToggle.setAttribute("aria-expanded", "true");
-      previousShows.classList.add("open");
-      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
-    }
-  }
-
-  function syncPreviousHeight() {
-    if (previousToggle.getAttribute("aria-expanded") === "true") {
-      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
-    }
-  }
-
-  function updateMediaMetrics() {
-    if (!mediaTrack) return;
-
-    const firstCard = mediaTrack.querySelector(".media-card");
-    if (!firstCard || !mediaOriginalCount) return;
-
-    const trackStyle = window.getComputedStyle(mediaTrack);
-    const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
-
-    mediaCardStep = firstCard.getBoundingClientRect().width + gap;
-    mediaSetWidth = mediaTrack.scrollWidth / 7;
-  }
-
-  function setupMediaLoop() {
-    if (!mediaTrack || mediaTrack.dataset.loopReady === "true") return;
-
-    const originals = Array.from(mediaTrack.children);
-    mediaOriginalCount = originals.length;
-
-    const clonesA = originals.map(card => card.cloneNode(true));
-    const clonesB = originals.map(card => card.cloneNode(true));
-    const clonesC = originals.map(card => card.cloneNode(true));
-    const clonesD = originals.map(card => card.cloneNode(true));
-    const clonesE = originals.map(card => card.cloneNode(true));
-    const clonesF = originals.map(card => card.cloneNode(true));
-
-    mediaTrack.replaceChildren(
-      ...clonesA,
-      ...clonesB,
-      ...clonesC,
-      ...originals,
-      ...clonesD,
-      ...clonesE,
-      ...clonesF
-    );
-
-    mediaTrack.dataset.loopReady = "true";
-
-    requestAnimationFrame(() => {
-      updateMediaMetrics();
-      mediaViewport.scrollLeft = mediaSetWidth * 3;
-
-      requestAnimationFrame(() => {
-        mediaLoopReady = true;
-      });
-    });
-  }
-
-  function keepMediaLoopCentered() {
-    if (!mediaLoopReady || !mediaSetWidth || mediaRecenterScheduled) return;
-
-    const current = mediaViewport.scrollLeft;
-    const safeStart = mediaSetWidth * 1.5;
-    const safeEnd = mediaSetWidth * 4.5;
-
-    if (current < safeStart || current > safeEnd) {
-      mediaRecenterScheduled = true;
-
-      requestAnimationFrame(() => {
-        const offsetInsideSet =
-          ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
-
-        mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
-        mediaRecenterScheduled = false;
-      });
-    }
-  }
-
-  function scrollMediaBy(direction) {
-    mediaViewport.scrollBy({
-      left: mediaCardStep * direction,
-      behavior: "smooth"
-    });
-  }
-
-  menuButton.addEventListener("click", openMenu);
-  overlay.addEventListener("click", closeMenu);
-
-  homeLinks.forEach(link => link.addEventListener("click", goToHero));
-  shopLinks.forEach(link => link.addEventListener("click", goToShop));
-  mediaLinks.forEach(link => link.addEventListener("click", goToMedia));
-  showsLinks.forEach(link => link.addEventListener("click", goToShows));
-
-  previousToggle.addEventListener("click", togglePreviousShows);
-
-  mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
-  mediaNext.addEventListener("click", () => scrollMediaBy(1));
-
-  mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
-
-  window.addEventListener("scroll", handleScrollEffects, { passive: true });
-
-  swipeFrames.forEach(frame => {
-    const viewport = frame.querySelector(".product-image-viewport");
-    const dots = frame.querySelectorAll(".dot");
-
-    viewport.addEventListener("scroll", () => {
-      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-      const secondActive = viewport.scrollLeft > maxScroll / 2;
-
-      dots.forEach(dot => dot.classList.remove("active"));
-
-      if (secondActive) {
-        dots[1].classList.add("active");
-      } else {
-        dots[0].classList.add("active");
+      const playPromise = heroVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
       }
-    });
-  });
+    }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    tryAutoplayVideo();
-    setupMediaLoop();
+    function updateSelectionBarPosition() {
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
+      const barHeight = selectionBar.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const naturalTop = headerHeight - scrollY;
 
-    requestAnimationFrame(() => {
-      setInitialLogoSetup();
-      bigLogo.style.visibility = "visible";
-      bigLogo.style.opacity = "0";
+      selectionBar.classList.remove("stick-bottom", "stick-top");
+      selectionBarPlaceholder.classList.remove("active");
+
+      if (naturalTop > viewportHeight - barHeight) {
+        selectionBar.classList.add("stick-bottom");
+        selectionBarPlaceholder.classList.add("active");
+      } else if (naturalTop <= 0) {
+        selectionBar.classList.add("stick-top");
+        selectionBarPlaceholder.classList.add("active");
+      }
+    }
+
+    function revealShopOnFirstScroll() {
+      if (window.scrollY > 0) {
+        sections.shop.classList.add("revealed");
+      }
+    }
+
+    function setInitialLogoSetup() {
+      updateSelectionBarPosition();
+      const initialBarTop = selectionBar.getBoundingClientRect().top;
+      bigLogo.style.top = (initialBarTop / 2) + "px";
+      fadeEnd = Math.max(initialBarTop, 1);
+    }
+
+    function updateLogoOpacity() {
+      const scrollY = window.scrollY;
+      let opacity = 1 - (scrollY / fadeEnd);
+      opacity = Math.max(0, Math.min(1, opacity));
+      bigLogo.style.opacity = opacity;
+    }
+
+    function handleScrollEffects() {
+      updateSelectionBarPosition();
+      updateLogoOpacity();
       revealShopOnFirstScroll();
+    }
+
+    function scrollToSection(section) {
+      const barHeight = selectionBar.offsetHeight;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth"
+      });
+    }
+
+    function goToHero(event) {
+      event.preventDefault();
+      setMenuState(false);
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function bindSectionLinks(selector, section) {
+      document.querySelectorAll(selector).forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          setMenuState(false);
+          scrollToSection(section);
+        });
+      });
+    }
+
+    function togglePreviousShows() {
+      const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        previousToggle.setAttribute("aria-expanded", "false");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+
+        requestAnimationFrame(() => {
+          previousShows.style.maxHeight = "0px";
+          previousShows.classList.remove("open");
+        });
+      } else {
+        previousToggle.setAttribute("aria-expanded", "true");
+        previousShows.classList.add("open");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
+    function syncPreviousHeight() {
+      if (previousToggle.getAttribute("aria-expanded") === "true") {
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
+    function updateMediaMetrics() {
+      if (!mediaTrack) return;
+
+      const firstCard = mediaTrack.querySelector(".media-card");
+      if (!firstCard || !mediaOriginalCount) return;
+
+      const trackStyle = window.getComputedStyle(mediaTrack);
+      const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
+
+      mediaCardStep = firstCard.getBoundingClientRect().width + gap;
+      mediaSetWidth = mediaTrack.scrollWidth / 7;
+    }
+
+    function setupMediaLoop() {
+      if (!mediaTrack || mediaTrack.dataset.loopReady === "true") return;
+
+      const originals = Array.from(mediaTrack.children);
+      mediaOriginalCount = originals.length;
+
+      const clonesA = originals.map(card => card.cloneNode(true));
+      const clonesB = originals.map(card => card.cloneNode(true));
+      const clonesC = originals.map(card => card.cloneNode(true));
+      const clonesD = originals.map(card => card.cloneNode(true));
+      const clonesE = originals.map(card => card.cloneNode(true));
+      const clonesF = originals.map(card => card.cloneNode(true));
+
+      mediaTrack.replaceChildren(
+        ...clonesA,
+        ...clonesB,
+        ...clonesC,
+        ...originals,
+        ...clonesD,
+        ...clonesE,
+        ...clonesF
+      );
+
+      mediaTrack.dataset.loopReady = "true";
+
+      requestAnimationFrame(() => {
+        updateMediaMetrics();
+        mediaViewport.scrollLeft = mediaSetWidth * 3;
+
+        requestAnimationFrame(() => {
+          mediaLoopReady = true;
+        });
+      });
+    }
+
+    function keepMediaLoopCentered() {
+      if (!mediaLoopReady || !mediaSetWidth || mediaRecenterScheduled) return;
+
+      const current = mediaViewport.scrollLeft;
+      const safeStart = mediaSetWidth * 1.5;
+      const safeEnd = mediaSetWidth * 4.5;
+
+      if (current < safeStart || current > safeEnd) {
+        mediaRecenterScheduled = true;
+
+        requestAnimationFrame(() => {
+          const offsetInsideSet =
+            ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
+
+          mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+          mediaRecenterScheduled = false;
+        });
+      }
+    }
+
+    function scrollMediaBy(direction) {
+      mediaViewport.scrollBy({
+        left: mediaCardStep * direction,
+        behavior: "smooth"
+      });
+    }
+
+    setMenuState(false);
+
+    menuButton.addEventListener("click", () => setMenuState(true));
+    overlay.addEventListener("click", () => setMenuState(false));
+
+    document.querySelectorAll(".home-link").forEach(link => {
+      link.addEventListener("click", goToHero);
+    });
+
+    bindSectionLinks(".shop-link", sections.shop);
+    bindSectionLinks(".media-link", sections.media);
+    bindSectionLinks(".shows-link", sections.shows);
+
+    previousToggle.addEventListener("click", togglePreviousShows);
+
+    mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
+    mediaNext.addEventListener("click", () => scrollMediaBy(1));
+    mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
+
+    window.addEventListener("scroll", handleScrollEffects, { passive: true });
+
+    swipeFrames.forEach(frame => {
+      const viewport = frame.querySelector(".product-image-viewport");
+      const dots = frame.querySelectorAll(".dot");
+
+      viewport.addEventListener("scroll", () => {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        const secondActive = viewport.scrollLeft > maxScroll / 2;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[secondActive ? 1 : 0].classList.add("active");
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      tryAutoplayVideo();
+      setupMediaLoop();
+
+      requestAnimationFrame(() => {
+        setInitialLogoSetup();
+        bigLogo.style.visibility = "visible";
+        bigLogo.style.opacity = "0";
+        revealShopOnFirstScroll();
+        syncPreviousHeight();
+
+        setTimeout(() => {
+          updateLogoOpacity();
+        }, 1200);
+      });
+    });
+
+    heroVideo.addEventListener("loadedmetadata", tryAutoplayVideo);
+    heroVideo.addEventListener("canplay", tryAutoplayVideo);
+
+    document.addEventListener("touchstart", tryAutoplayVideo, { passive: true });
+    document.addEventListener("click", tryAutoplayVideo);
+
+    window.addEventListener("resize", () => {
+      updateSelectionBarPosition();
+      updateLogoOpacity();
       syncPreviousHeight();
 
-      setTimeout(() => {
-        updateLogoOpacity();
-      }, 1200);
+      if (mediaTrack?.dataset.loopReady === "true") {
+        const offsetInsideSet = mediaSetWidth
+          ? ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth
+          : 0;
+
+        updateMediaMetrics();
+        mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+      }
     });
-  });
-
-  heroVideo.addEventListener("loadedmetadata", tryAutoplayVideo);
-  heroVideo.addEventListener("canplay", tryAutoplayVideo);
-
-  document.addEventListener("touchstart", tryAutoplayVideo, { passive: true });
-  document.addEventListener("click", tryAutoplayVideo);
-
-  window.addEventListener("resize", () => {
-    updateSelectionBarPosition();
-    updateLogoOpacity();
-    syncPreviousHeight();
-
-    if (mediaTrack?.dataset.loopReady === "true") {
-      const offsetInsideSet = mediaSetWidth
-        ? ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth
-        : 0;
-
-      updateMediaMetrics();
-      mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
