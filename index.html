@@ -1,4 +1,3 @@
-<!-- update -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -388,299 +387,319 @@
   </div>
 
   <script>
-    const menuButton = document.getElementById("menuButton");
-    const sideMenu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
-    const heroVideo = document.getElementById("heroVideo");
+  const menuButton = document.getElementById("menuButton");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const heroVideo = document.getElementById("heroVideo");
 
-    const bigLogo = document.querySelector(".logo-big");
-    const selectionBar = document.getElementById("selectionBar");
-    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
-    const header = document.querySelector(".header");
-    const shopSection = document.getElementById("shop");
-    const mediaSection = document.getElementById("media");
-    const showsSection = document.getElementById("shows");
+  const bigLogo = document.querySelector(".logo-big");
+  const selectionBar = document.getElementById("selectionBar");
+  const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+  const header = document.querySelector(".header");
+  const shopSection = document.getElementById("shop");
+  const mediaSection = document.getElementById("media");
+  const showsSection = document.getElementById("shows");
 
-    const homeLinks = document.querySelectorAll(".home-link");
-    const shopLinks = document.querySelectorAll(".shop-link");
-    const mediaLinks = document.querySelectorAll(".media-link");
-    const showsLinks = document.querySelectorAll(".shows-link");
+  const homeLinks = document.querySelectorAll(".home-link");
+  const shopLinks = document.querySelectorAll(".shop-link");
+  const mediaLinks = document.querySelectorAll(".media-link");
+  const showsLinks = document.querySelectorAll(".shows-link");
 
-    const previousToggle = document.getElementById("previousToggle");
-    const previousShows = document.getElementById("previousShows");
+  const previousToggle = document.getElementById("previousToggle");
+  const previousShows = document.getElementById("previousShows");
 
-    const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
+  const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
 
-    const mediaViewport = document.getElementById("mediaViewport");
-    const mediaTrack = document.getElementById("mediaTrack");
-    const mediaPrev = document.getElementById("mediaPrev");
-    const mediaNext = document.getElementById("mediaNext");
+  const mediaViewport = document.getElementById("mediaViewport");
+  const mediaTrack = document.getElementById("mediaTrack");
+  const mediaPrev = document.getElementById("mediaPrev");
+  const mediaNext = document.getElementById("mediaNext");
 
-    let fadeEnd = 0;
-    let mediaSetWidth = 0;
-    let mediaCardStep = 0;
-    let mediaOriginalCount = 0;
+  let fadeEnd = 0;
+  let mediaSetWidth = 0;
+  let mediaCardStep = 0;
+  let mediaOriginalCount = 0;
+  let mediaRecenterScheduled = false;
 
-    function tryAutoplayVideo() {
-      if (!heroVideo) return;
+  function tryAutoplayVideo() {
+    if (!heroVideo) return;
 
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.playsInline = true;
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.playsInline = true;
 
-      const playPromise = heroVideo.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {});
-      }
+    const playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
     }
+  }
 
-    function openMenu() {
-      sideMenu.classList.add("open");
-      sideMenu.setAttribute("aria-hidden", "false");
-      overlay.classList.add("show");
+  function openMenu() {
+    sideMenu.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+    overlay.classList.add("show");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("show");
+  }
+
+  function updateSelectionBarPosition() {
+    const scrollY = window.scrollY;
+    const headerHeight = header.offsetHeight;
+    const barHeight = selectionBar.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
+    const naturalTop = headerHeight - scrollY;
+
+    selectionBar.classList.remove("stick-bottom", "stick-top");
+    selectionBarPlaceholder.classList.remove("active");
+
+    if (naturalTop > viewportHeight - barHeight) {
+      selectionBar.classList.add("stick-bottom");
+      selectionBarPlaceholder.classList.add("active");
+    } else if (naturalTop <= 0) {
+      selectionBar.classList.add("stick-top");
+      selectionBarPlaceholder.classList.add("active");
     }
+  }
 
-    function closeMenu() {
-      sideMenu.classList.remove("open");
-      sideMenu.setAttribute("aria-hidden", "true");
-      overlay.classList.remove("show");
+  function revealShopOnFirstScroll() {
+    if (window.scrollY > 0) {
+      shopSection.classList.add("revealed");
     }
+  }
 
-    function updateSelectionBarPosition() {
-      const scrollY = window.scrollY;
-      const headerHeight = header.offsetHeight;
-      const barHeight = selectionBar.offsetHeight;
-      const viewportHeight = window.innerHeight;
+  function setInitialLogoSetup() {
+    updateSelectionBarPosition();
+    const initialBarTop = selectionBar.getBoundingClientRect().top;
+    bigLogo.style.top = (initialBarTop / 2) + "px";
+    fadeEnd = Math.max(initialBarTop, 1);
+  }
 
-      const naturalTop = headerHeight - scrollY;
+  function updateLogoOpacity() {
+    const scrollY = window.scrollY;
+    let opacity = 1 - (scrollY / fadeEnd);
+    opacity = Math.max(0, Math.min(1, opacity));
+    bigLogo.style.opacity = opacity;
+  }
 
-      selectionBar.classList.remove("stick-bottom", "stick-top");
-      selectionBarPlaceholder.classList.remove("active");
+  function handleScrollEffects() {
+    updateSelectionBarPosition();
+    updateLogoOpacity();
+    revealShopOnFirstScroll();
+  }
 
-      if (naturalTop > viewportHeight - barHeight) {
-        selectionBar.classList.add("stick-bottom");
-        selectionBarPlaceholder.classList.add("active");
-      } else if (naturalTop <= 0) {
-        selectionBar.classList.add("stick-top");
-        selectionBarPlaceholder.classList.add("active");
-      }
+  function scrollToSection(section) {
+    const barHeight = selectionBar.offsetHeight;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
+
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+
+    window.scrollTo({
+      top: sectionTop,
+      behavior: "smooth"
+    });
+  }
+
+  function goToHero(event) {
+    event.preventDefault();
+    closeMenu();
+
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  function goToShop(event) {
+    event.preventDefault();
+    closeMenu();
+    scrollToSection(shopSection);
+  }
+
+  function goToMedia(event) {
+    event.preventDefault();
+    closeMenu();
+    scrollToSection(mediaSection);
+  }
+
+  function goToShows(event) {
+    event.preventDefault();
+    closeMenu();
+    scrollToSection(showsSection);
+  }
+
+  function togglePreviousShows() {
+    const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+      previousToggle.setAttribute("aria-expanded", "false");
+      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+
+      requestAnimationFrame(() => {
+        previousShows.style.maxHeight = "0px";
+        previousShows.classList.remove("open");
+      });
+    } else {
+      previousToggle.setAttribute("aria-expanded", "true");
+      previousShows.classList.add("open");
+      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
     }
+  }
 
-    function revealShopOnFirstScroll() {
-      if (window.scrollY > 0) {
-        shopSection.classList.add("revealed");
-      }
+  function syncPreviousHeight() {
+    if (previousToggle.getAttribute("aria-expanded") === "true") {
+      previousShows.style.maxHeight = previousShows.scrollHeight + "px";
     }
+  }
 
-    function setInitialLogoSetup() {
-      updateSelectionBarPosition();
-      const initialBarTop = selectionBar.getBoundingClientRect().top;
-      bigLogo.style.top = (initialBarTop / 2) + "px";
-      fadeEnd = Math.max(initialBarTop, 1);
-    }
+  function updateMediaMetrics() {
+    if (!mediaTrack) return;
 
-    function updateLogoOpacity() {
-      const scrollY = window.scrollY;
-      let opacity = 1 - (scrollY / fadeEnd);
-      opacity = Math.max(0, Math.min(1, opacity));
-      bigLogo.style.opacity = opacity;
-    }
+    const firstCard = mediaTrack.querySelector(".media-card");
+    if (!firstCard || !mediaOriginalCount) return;
 
-    function handleScrollEffects() {
-      updateSelectionBarPosition();
-      updateLogoOpacity();
-      revealShopOnFirstScroll();
-    }
+    const trackStyle = window.getComputedStyle(mediaTrack);
+    const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
 
-    function scrollToSection(section) {
-      const barHeight = selectionBar.offsetHeight;
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
+    mediaCardStep = firstCard.getBoundingClientRect().width + gap;
+    mediaSetWidth = mediaTrack.scrollWidth / 7;
+  }
 
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+  function setupMediaLoop() {
+    if (!mediaTrack || mediaTrack.dataset.loopReady === "true") return;
 
-      window.scrollTo({
-        top: sectionTop,
-        behavior: "smooth"
+    const originals = Array.from(mediaTrack.children);
+    mediaOriginalCount = originals.length;
+
+    const clonesA = originals.map(card => card.cloneNode(true));
+    const clonesB = originals.map(card => card.cloneNode(true));
+    const clonesC = originals.map(card => card.cloneNode(true));
+    const clonesD = originals.map(card => card.cloneNode(true));
+    const clonesE = originals.map(card => card.cloneNode(true));
+    const clonesF = originals.map(card => card.cloneNode(true));
+
+    mediaTrack.replaceChildren(
+      ...clonesA,
+      ...clonesB,
+      ...clonesC,
+      ...originals,
+      ...clonesD,
+      ...clonesE,
+      ...clonesF
+    );
+
+    mediaTrack.dataset.loopReady = "true";
+
+    requestAnimationFrame(() => {
+      updateMediaMetrics();
+      mediaViewport.scrollLeft = mediaSetWidth * 3;
+    });
+  }
+
+  function keepMediaLoopCentered() {
+    if (!mediaSetWidth || mediaRecenterScheduled) return;
+
+    const current = mediaViewport.scrollLeft;
+    const safeStart = mediaSetWidth * 2;
+    const safeEnd = mediaSetWidth * 4;
+
+    if (current < safeStart || current > safeEnd) {
+      mediaRecenterScheduled = true;
+
+      requestAnimationFrame(() => {
+        const offsetInsideSet =
+          ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
+        mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+        mediaRecenterScheduled = false;
       });
     }
+  }
 
-    function goToHero(event) {
-      event.preventDefault();
-      closeMenu();
+  function scrollMediaBy(direction) {
+    mediaViewport.scrollBy({
+      left: mediaCardStep * direction,
+      behavior: "smooth"
+    });
+  }
 
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+  menuButton.addEventListener("click", openMenu);
+  overlay.addEventListener("click", closeMenu);
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
+  homeLinks.forEach(link => link.addEventListener("click", goToHero));
+  shopLinks.forEach(link => link.addEventListener("click", goToShop));
+  mediaLinks.forEach(link => link.addEventListener("click", goToMedia));
+  showsLinks.forEach(link => link.addEventListener("click", goToShows));
 
-    function goToShop(event) {
-      event.preventDefault();
-      closeMenu();
-      scrollToSection(shopSection);
-    }
+  previousToggle.addEventListener("click", togglePreviousShows);
 
-    function goToMedia(event) {
-      event.preventDefault();
-      closeMenu();
-      scrollToSection(mediaSection);
-    }
+  mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
+  mediaNext.addEventListener("click", () => scrollMediaBy(1));
 
-    function goToShows(event) {
-      event.preventDefault();
-      closeMenu();
-      scrollToSection(showsSection);
-    }
+  mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
 
-    function togglePreviousShows() {
-      const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+  window.addEventListener("scroll", handleScrollEffects, { passive: true });
 
-      if (isOpen) {
-        previousToggle.setAttribute("aria-expanded", "false");
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+  swipeFrames.forEach(frame => {
+    const viewport = frame.querySelector(".product-image-viewport");
+    const dots = frame.querySelectorAll(".dot");
 
-        requestAnimationFrame(() => {
-          previousShows.style.maxHeight = "0px";
-          previousShows.classList.remove("open");
-        });
+    viewport.addEventListener("scroll", () => {
+      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      const secondActive = viewport.scrollLeft > maxScroll / 2;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+
+      if (secondActive) {
+        dots[1].classList.add("active");
       } else {
-        previousToggle.setAttribute("aria-expanded", "true");
-        previousShows.classList.add("open");
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+        dots[0].classList.add("active");
       }
-    }
-
-    function syncPreviousHeight() {
-      if (previousToggle.getAttribute("aria-expanded") === "true") {
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
-      }
-    }
-
-    function updateMediaMetrics() {
-      if (!mediaTrack) return;
-
-      const firstCard = mediaTrack.querySelector(".media-card");
-      if (!firstCard || !mediaOriginalCount) return;
-
-      mediaCardStep = firstCard.getBoundingClientRect().width + 32;
-      mediaSetWidth = mediaTrack.scrollWidth / 5;
-    }
-
-    function setupMediaLoop() {
-      if (!mediaTrack || mediaTrack.dataset.loopReady === "true") return;
-
-      const originals = Array.from(mediaTrack.children);
-      mediaOriginalCount = originals.length;
-
-      const set1 = originals.map(card => card.cloneNode(true));
-      const set2 = originals.map(card => card.cloneNode(true));
-      const set3 = originals.map(card => card.cloneNode(true));
-      const set4 = originals.map(card => card.cloneNode(true));
-
-      mediaTrack.replaceChildren(
-        ...set1,
-        ...set2,
-        ...originals,
-        ...set3,
-        ...set4
-      );
-
-      mediaTrack.dataset.loopReady = "true";
-
-      requestAnimationFrame(() => {
-        updateMediaMetrics();
-        mediaViewport.scrollLeft = mediaSetWidth * 2;
-      });
-    }
-
-    function keepMediaLoopCentered() {
-      if (!mediaSetWidth) return;
-
-      if (mediaViewport.scrollLeft < mediaSetWidth) {
-        mediaViewport.scrollLeft += mediaSetWidth;
-      } else if (mediaViewport.scrollLeft > mediaSetWidth * 3) {
-        mediaViewport.scrollLeft -= mediaSetWidth;
-      }
-    }
-
-    function scrollMediaBy(direction) {
-      mediaViewport.scrollBy({
-        left: mediaCardStep * direction,
-        behavior: "smooth"
-      });
-    }
-
-    menuButton.addEventListener("click", openMenu);
-    overlay.addEventListener("click", closeMenu);
-
-    homeLinks.forEach(link => link.addEventListener("click", goToHero));
-    shopLinks.forEach(link => link.addEventListener("click", goToShop));
-    mediaLinks.forEach(link => link.addEventListener("click", goToMedia));
-    showsLinks.forEach(link => link.addEventListener("click", goToShows));
-
-    previousToggle.addEventListener("click", togglePreviousShows);
-
-    mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
-    mediaNext.addEventListener("click", () => scrollMediaBy(1));
-
-    mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
-
-    window.addEventListener("scroll", handleScrollEffects, { passive: true });
-
-    swipeFrames.forEach(frame => {
-      const viewport = frame.querySelector(".product-image-viewport");
-      const dots = frame.querySelectorAll(".dot");
-
-      viewport.addEventListener("scroll", () => {
-        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-        const secondActive = viewport.scrollLeft > maxScroll / 2;
-
-        dots.forEach(dot => dot.classList.remove("active"));
-
-        if (secondActive) {
-          dots[1].classList.add("active");
-        } else {
-          dots[0].classList.add("active");
-        }
-      });
     });
+  });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      tryAutoplayVideo();
-      setupMediaLoop();
+  document.addEventListener("DOMContentLoaded", () => {
+    tryAutoplayVideo();
+    setupMediaLoop();
 
-      requestAnimationFrame(() => {
-        setInitialLogoSetup();
-        bigLogo.style.visibility = "visible";
-        bigLogo.style.opacity = "0";
-        revealShopOnFirstScroll();
-        syncPreviousHeight();
-
-        setTimeout(() => {
-          updateLogoOpacity();
-        }, 1200);
-      });
-    });
-
-    heroVideo.addEventListener("loadedmetadata", tryAutoplayVideo);
-    heroVideo.addEventListener("canplay", tryAutoplayVideo);
-
-    document.addEventListener("touchstart", tryAutoplayVideo, { passive: true });
-    document.addEventListener("click", tryAutoplayVideo);
-
-    window.addEventListener("resize", () => {
-      updateSelectionBarPosition();
-      updateLogoOpacity();
+    requestAnimationFrame(() => {
+      setInitialLogoSetup();
+      bigLogo.style.visibility = "visible";
+      bigLogo.style.opacity = "0";
+      revealShopOnFirstScroll();
       syncPreviousHeight();
 
-      if (mediaTrack?.dataset.loopReady === "true") {
-        const previousRatio = mediaSetWidth ? mediaViewport.scrollLeft / mediaSetWidth : 2;
-        updateMediaMetrics();
-        mediaViewport.scrollLeft = mediaSetWidth * previousRatio;
-      }
+      setTimeout(() => {
+        updateLogoOpacity();
+      }, 1200);
     });
-  </script>
+  });
+
+  heroVideo.addEventListener("loadedmetadata", tryAutoplayVideo);
+  heroVideo.addEventListener("canplay", tryAutoplayVideo);
+
+  document.addEventListener("touchstart", tryAutoplayVideo, { passive: true });
+  document.addEventListener("click", tryAutoplayVideo);
+
+  window.addEventListener("resize", () => {
+    updateSelectionBarPosition();
+    updateLogoOpacity();
+    syncPreviousHeight();
+
+    if (mediaTrack?.dataset.loopReady === "true") {
+      const offsetInsideSet = mediaSetWidth
+        ? ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth
+        : 0;
+
+      updateMediaMetrics();
+      mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+    }
+  });
+</script>
 </body>
 </html>
