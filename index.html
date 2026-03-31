@@ -11,7 +11,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=13">
+  <link rel="stylesheet" href="./style.css?v=14">
 </head>
 <body id="top">
   <header class="header" id="hero">
@@ -230,60 +230,60 @@
           <div class="media-carousel-overlay"></div>
 
           <button class="media-arrow media-arrow-left" id="mediaPrev" aria-label="Previous video">
-            ‹
+            <span>‹</span>
           </button>
 
           <div class="media-carousel-viewport" id="mediaViewport">
             <div class="media-carousel-track" id="mediaTrack">
               <a class="media-card" href="https://youtu.be/307b2iJ0zmg?is=HNCsg9cYGLcBkm9_" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/307b2iJ0zmg/hqdefault.jpg" alt="YouTube video 1 thumbnail">
-                <span>WATCH 01</span>
+                <span>Video Title 01</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/m8rJq6KeYjY?is=iGQh9M_G9IcAv1Qc" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/m8rJq6KeYjY/hqdefault.jpg" alt="YouTube video 2 thumbnail">
-                <span>WATCH 02</span>
+                <span>Video Title 02</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/UvCe2OPXD3Y?is=iRFDhlRDVVGbVYLn" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/UvCe2OPXD3Y/hqdefault.jpg" alt="YouTube video 3 thumbnail">
-                <span>WATCH 03</span>
+                <span>Video Title 03</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/q0_5eXacZS4?is=eSNn7bRlMbMWKmBM" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/q0_5eXacZS4/hqdefault.jpg" alt="YouTube video 4 thumbnail">
-                <span>WATCH 04</span>
+                <span>Video Title 04</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/sOyU8-lJFRk?is=uRfhc3hIaleTGbxN" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/sOyU8-lJFRk/hqdefault.jpg" alt="YouTube video 5 thumbnail">
-                <span>WATCH 05</span>
+                <span>Video Title 05</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/d3kwLeswkvs?is=sHehtBveZkg-NsGh" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/d3kwLeswkvs/hqdefault.jpg" alt="YouTube video 6 thumbnail">
-                <span>WATCH 06</span>
+                <span>Video Title 06</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/X10OZqAWW5g?is=TJFj_REsHW5gPLUz" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/X10OZqAWW5g/hqdefault.jpg" alt="YouTube video 7 thumbnail">
-                <span>WATCH 07</span>
+                <span>Video Title 07</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/-EnJkVaSo3w?is=Cph2GpuCHa_4Chu9" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/-EnJkVaSo3w/hqdefault.jpg" alt="YouTube video 8 thumbnail">
-                <span>WATCH 08</span>
+                <span>Video Title 08</span>
               </a>
 
               <a class="media-card" href="https://youtu.be/iZaWmbAoDHM?is=dpVOiiWmpGhj4SOW" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.youtube.com/vi/iZaWmbAoDHM/hqdefault.jpg" alt="YouTube video 9 thumbnail">
-                <span>WATCH 09</span>
+                <span>Video Title 09</span>
               </a>
             </div>
           </div>
 
           <button class="media-arrow media-arrow-right" id="mediaNext" aria-label="Next video">
-            ›
+            <span>›</span>
           </button>
         </div>
       </section>
@@ -570,7 +570,7 @@
 
       requestAnimationFrame(() => {
         mediaSetWidth = mediaTrack.scrollWidth / 3;
-        mediaCardStep = mediaTrack.querySelector(".media-card").getBoundingClientRect().width + 24;
+        mediaCardStep = mediaTrack.querySelector(".media-card").getBoundingClientRect().width + 32;
         mediaViewport.scrollLeft = mediaSetWidth;
       });
     }
@@ -657,7 +657,7 @@
 
       if (mediaTrack?.dataset.loopReady === "true") {
         mediaSetWidth = mediaTrack.scrollWidth / 3;
-        mediaCardStep = mediaTrack.querySelector(".media-card").getBoundingClientRect().width + 24;
+        mediaCardStep = mediaTrack.querySelector(".media-card").getBoundingClientRect().width + 32;
       }
     });
   </script>

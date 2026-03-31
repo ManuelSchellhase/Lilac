@@ -204,11 +204,12 @@ body {
 .media-section {
   width: min(90rem, 100%);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(5rem, 10vw, 8rem);
+  padding: 0 0 clamp(5rem, 10vw, 8rem);
 }
 
 .media-title {
   margin: 0 0 clamp(2rem, 5vw, 4rem);
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
   color: white;
   font-family: font;
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -224,6 +225,7 @@ body {
   align-items: center;
   gap: clamp(1.25rem, 3vw, 2.2rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
 
 .media-platform-link {
@@ -236,11 +238,14 @@ body {
   display: block;
   height: clamp(1.7rem, 2.6vw, 2.4rem);
   width: auto;
+  transition: transform 0.2s ease;
 }
 
 .media-carousel-shell {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   aspect-ratio: 5 / 2;
   overflow: hidden;
   background-color: #0f0f0f;
@@ -282,16 +287,16 @@ body {
 .media-carousel-track {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   height: 100%;
-  padding: 0 clamp(4rem, 8vw, 6rem);
+  padding: 0 clamp(5rem, 8vw, 7rem);
 }
 
 .media-card {
-  flex: 0 0 clamp(14rem, 24vw, 18rem);
+  flex: 0 0 clamp(19rem, 24vw, 23rem);
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.8rem;
   text-decoration: none;
 }
 
@@ -301,12 +306,13 @@ body {
   object-fit: cover;
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease;
 }
 
 .media-card span {
   color: white;
   font-family: font;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
   font-weight: normal;
   letter-spacing: 0.04em;
   text-align: center;
@@ -317,15 +323,24 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  width: clamp(2.4rem, 4vw, 3rem);
-  height: clamp(2.4rem, 4vw, 3rem);
+  width: clamp(2.8rem, 4vw, 3.3rem);
+  height: clamp(2.8rem, 4vw, 3.3rem);
   border: none;
   background: rgba(23, 23, 23, 0.55);
   color: white;
   font-family: font;
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
-  line-height: 1;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.media-arrow span {
+  display: block;
+  line-height: 1;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  transform: translateY(-0.05em);
 }
 
 .media-arrow-left {
@@ -658,7 +673,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1.15rem;
   padding-top: 2rem;
 }
 
@@ -682,8 +697,9 @@ body {
 
 .side-menu-socials img {
   display: block;
-  height: clamp(1.1rem, 3vw, 1.4rem);
+  height: clamp(1.45rem, 3.7vw, 1.9rem);
   width: auto;
+  transition: transform 0.2s ease;
 }
 
 .mobile-logo-link {
@@ -742,8 +758,14 @@ body {
     margin-bottom: 2rem;
   }
 
+  .media-title,
+  .media-platforms {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .media-section {
-    padding: 0 1rem clamp(4rem, 10vw, 5rem);
+    padding-bottom: clamp(4rem, 10vw, 5rem);
   }
 
   .media-platforms {
@@ -755,13 +777,21 @@ body {
     height: 1.8rem;
   }
 
+  .media-carousel-shell {
+    aspect-ratio: 5 / 2;
+  }
+
   .media-carousel-track {
     gap: 1rem;
     padding: 0 1rem;
   }
 
   .media-card {
-    flex-basis: 12.5rem;
+    flex-basis: 9.5rem;
+  }
+
+  .media-card span {
+    font-size: 0.9rem;
   }
 
   .media-arrow {
@@ -873,10 +903,6 @@ body {
     transform: scale(1.03);
   }
 
-  .media-card img {
-    transition: transform 0.2s ease;
-  }
-
   .media-arrow:hover {
     background: rgba(23, 23, 23, 0.72);
   }
@@ -892,10 +918,6 @@ body {
 
   .side-menu-socials a:hover img {
     transform: scale(1.08);
-  }
-
-  .side-menu-socials img {
-    transition: transform 0.2s ease;
   }
 }
 
