@@ -312,10 +312,11 @@ body {
 .media-card span {
   color: white;
   font-family: font;
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
   font-weight: normal;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-align: center;
+  line-height: 1.2;
 }
 
 .media-arrow {
@@ -588,7 +589,7 @@ body {
 
 .menu-button-icon {
   display: block;
-  height: clamp(1.7rem, 4vw, 2.2rem);
+  height: clamp(1.15rem, 2.7vw, 1.45rem);
   width: auto;
 }
 
@@ -837,7 +838,7 @@ body {
   }
 
   .menu-button-icon {
-    height: clamp(1.9rem, 5vw, 2.2rem);
+    height: clamp(1.25rem, 3.3vw, 1.45rem);
   }
 
   .mobile-logo-link {
