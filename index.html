@@ -597,6 +597,759 @@
         bigLogo.style.opacity = "0";
         revealShopOnFirstScroll();
         syncPreviousHeight();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LILAC</title>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+
+  <link rel="stylesheet" href="./style.css?v=17">
+</head>
+<body>
+  <header class="header">
+    <video
+      id="heroVideo"
+      class="header-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      disablepictureinpicture
+      aria-hidden="true"
+    >
+      <source src="./videos/Lilac Homepage Video.mp4" type="video/mp4">
+    </video>
+
+    <img src="./images/Logo Gold.png" class="logo-big" alt="LILAC logo">
+  </header>
+
+  <div class="page-content">
+    <div class="selection-bar-placeholder" id="selectionBarPlaceholder"></div>
+
+    <div class="selection-bar" id="selectionBar">
+      <button class="menu-button" id="menuButton" aria-label="Open menu">
+        <img src="./images/MenuButton.svg" class="menu-button-icon" alt="">
+      </button>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#" class="nav-item home-link">HOME</a>
+        <a href="#" class="nav-item shop-link">SHOP</a>
+        <a href="#" class="nav-item home-link" aria-label="Home">
+          <img src="./images/Logo.png" class="logo" alt="LILAC">
+        </a>
+        <a href="#" class="nav-item media-link">MEDIA</a>
+        <a href="#" class="nav-item shows-link">SHOWS</a>
+      </nav>
+
+      <a href="#" class="mobile-logo-link home-link" aria-label="Home">
+        <img src="./images/Logo.png" class="mobile-logo" alt="LILAC">
+      </a>
+
+      <a
+        href="https://www.instagram.com/lilac.deathcore?igsh=aXcycXFjeWhiNGc="
+        class="instagram-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <img src="./images/InstagramIcon.svg" class="instagram-icon" alt="Instagram">
+      </a>
+    </div>
+
+    <div class="side-menu" id="sideMenu" aria-hidden="true">
+      <div class="side-menu-inner">
+        <nav class="mobile-nav" aria-label="Mobile navigation">
+          <a href="#" class="home-link">HOME</a>
+          <a href="#" class="shop-link">SHOP</a>
+          <a href="#" class="media-link">MEDIA</a>
+          <a href="#" class="shows-link">SHOWS</a>
+        </nav>
+
+        <div class="side-menu-socials" aria-label="Social links">
+          <a
+            href="https://www.instagram.com/lilac.deathcore?igsh=aXcycXFjeWhiNGc="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img src="./images/InstagramIconSM.svg" alt="Instagram">
+          </a>
+
+          <a
+            href="https://open.spotify.com/artist/5fbYR5VuUI5HBmESOaKUBs?si=C7G8FL15QPeSnng_4OXOvA"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+          >
+            <img src="./images/SpotifyIconSM.svg" alt="Spotify">
+          </a>
+
+          <a
+            href="https://music.apple.com/de/artist/lilac/1708759395?l=en-GB"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+          >
+            <img src="./images/AppleIconSM.svg" alt="Apple Music">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main class="content">
+      <section class="shop-section" id="shop">
+        <h2 class="shop-title">SHOP</h2>
+
+        <div class="shop-grid">
+          <article class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-frame has-two-images">
+                <div class="product-image-viewport">
+                  <div class="product-image-track">
+                    <img src="./images/HoodieSpine1.png" alt="Hoodie Spine front" class="product-image">
+                    <img src="./images/HoodieSpine2.png" alt="Hoodie Spine back" class="product-image">
+                  </div>
+                </div>
+                <div class="product-dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </a>
+            <h3 class="product-name">Hoodie Spine</h3>
+            <p class="product-price">€45.00</p>
+          </article>
+
+          <article class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-frame">
+                <div class="product-image-track">
+                  <img src="./images/TshirtMisery.png" alt="T-Shirt Misery" class="product-image">
+                </div>
+              </div>
+            </a>
+            <h3 class="product-name">T-Shirt Misery</h3>
+            <p class="product-price">€22.00</p>
+          </article>
+
+          <article class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-frame has-two-images">
+                <div class="product-image-viewport">
+                  <div class="product-image-track">
+                    <img src="./images/CDWhereEmptinessReigns1.png" alt="CD Where Emptiness Reigns cover" class="product-image">
+                    <img src="./images/CDWhereEmptinessReigns2.png" alt="CD Where Emptiness Reigns inside" class="product-image">
+                  </div>
+                </div>
+                <div class="product-dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </a>
+            <h3 class="product-name">Where Emptiness Reigns CD</h3>
+            <p class="product-price">€12.00</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="media-section" id="media">
+        <h2 class="media-title">MEDIA</h2>
+
+        <div class="media-platforms">
+          <a
+            href="https://www.instagram.com/lilac.deathcore?igsh=aXcycXFjeWhiNGc="
+            class="media-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img src="./images/InstagramIcon.svg" alt="Instagram">
+          </a>
+
+          <a
+            href="https://open.spotify.com/artist/5fbYR5VuUI5HBmESOaKUBs?si=C7G8FL15QPeSnng_4OXOvA"
+            class="media-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+          >
+            <img src="./images/SpotifyIcon.svg" alt="Spotify">
+          </a>
+
+          <a
+            href="https://music.apple.com/de/artist/lilac/1708759395?l=en-GB"
+            class="media-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+          >
+            <img src="./images/AppleIcon.svg" alt="Apple Music">
+          </a>
+
+          <a
+            href="https://youtube.com/@lilac.deathcore?si=XK92csx8nMr2cLZ9"
+            class="media-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <img src="./images/YoutubeIcon.svg" alt="YouTube">
+          </a>
+        </div>
+
+        <div class="media-carousel-shell">
+          <video
+            class="media-bg-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            disablepictureinpicture
+            aria-hidden="true"
+          >
+            <source src="./videos/Lilac Media Video.mp4" type="video/mp4">
+          </video>
+
+          <div class="media-carousel-overlay"></div>
+
+          <button class="media-arrow media-arrow-left" id="mediaPrev" aria-label="Previous video">
+            <span>‹</span>
+          </button>
+
+          <div class="media-carousel-viewport" id="mediaViewport">
+            <div class="media-carousel-track" id="mediaTrack">
+              <a class="media-card" href="https://youtu.be/307b2iJ0zmg?is=HNCsg9cYGLcBkm9_" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/307b2iJ0zmg/hqdefault.jpg" alt="LILAC - SINS OF THE FATHER [OFFICIAL MUSIC VIDEO] (2023) SW EXCLUSIVE thumbnail">
+                <span>LILAC - SINS OF THE FATHER [OFFICIAL MUSIC VIDEO] (2023) SW EXCLUSIVE</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/m8rJq6KeYjY?is=iGQh9M_G9IcAv1Qc" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/m8rJq6KeYjY/hqdefault.jpg" alt="LILAC - WHERE EMPTINESS REIGNS [OFFICIAL EP STREAM] (2024) SW EXCLUSIVE thumbnail">
+                <span>LILAC - WHERE EMPTINESS REIGNS [OFFICIAL EP STREAM] (2024) SW EXCLUSIVE</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/UvCe2OPXD3Y?is=iRFDhlRDVVGbVYLn" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/UvCe2OPXD3Y/hqdefault.jpg" alt="LILAC - Mars (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Mars (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/q0_5eXacZS4?is=eSNn7bRlMbMWKmBM" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/q0_5eXacZS4/hqdefault.jpg" alt="LILAC - The New Cult (Official Audio Visualizer) thumbnail">
+                <span>LILAC - The New Cult (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/sOyU8-lJFRk?is=uRfhc3hIaleTGbxN" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/sOyU8-lJFRk/hqdefault.jpg" alt="LILAC - Crown Of Faith (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Crown Of Faith (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/d3kwLeswkvs?is=sHehtBveZkg-NsGh" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/d3kwLeswkvs/hqdefault.jpg" alt="LILAC - Emptiness Reigns (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Emptiness Reigns (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/X10OZqAWW5g?is=TJFj_REsHW5gPLUz" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/X10OZqAWW5g/hqdefault.jpg" alt="LILAC - Last Judgement (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Last Judgement (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/-EnJkVaSo3w?is=Cph2GpuCHa_4Chu9" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/-EnJkVaSo3w/hqdefault.jpg" alt="LILAC - Sins Of The Father (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Sins Of The Father (Official Audio Visualizer)</span>
+              </a>
+
+              <a class="media-card" href="https://youtu.be/iZaWmbAoDHM?is=dpVOiiWmpGhj4SOW" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.youtube.com/vi/iZaWmbAoDHM/hqdefault.jpg" alt="LILAC - Enlightened (Official Audio Visualizer) thumbnail">
+                <span>LILAC - Enlightened (Official Audio Visualizer)</span>
+              </a>
+            </div>
+          </div>
+
+          <button class="media-arrow media-arrow-right" id="mediaNext" aria-label="Next video">
+            <span>›</span>
+          </button>
+        </div>
+
+        <div class="media-photos-section">
+          <h3 class="media-photos-title">PHOTOS</h3>
+
+          <div class="photo-grid photo-grid-preview">
+            <button class="photo-tile" type="button" data-photo-index="0">
+              <img src="./images/GalleryPhoto1.jpg" alt="Gallery photo 1">
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="1">
+              <img src="./images/GalleryPhoto2.jpg" alt="Gallery photo 2">
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="2">
+              <img src="./images/GalleryPhoto3.jpg" alt="Gallery photo 3">
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="3">
+              <img src="./images/GalleryPhoto4.jpg" alt="Gallery photo 4">
+            </button>
+          </div>
+
+          <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
+            <span>MORE</span>
+            <span class="photos-toggle-icon">▾</span>
+          </button>
+
+          <div class="photos-collapsible" id="morePhotos">
+            <div class="photo-grid photo-grid-more">
+              <button class="photo-tile" type="button" data-photo-index="4">
+                <img src="./images/GalleryPhoto5.jpg" alt="Gallery photo 5">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="5">
+                <img src="./images/GalleryPhoto6.jpg" alt="Gallery photo 6">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="6">
+                <img src="./images/GalleryPhoto7.jpg" alt="Gallery photo 7">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="7">
+                <img src="./images/GalleryPhoto8.jpg" alt="Gallery photo 8">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="8">
+                <img src="./images/GalleryPhoto9.jpg" alt="Gallery photo 9">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="9">
+                <img src="./images/GalleryPhoto10.jpg" alt="Gallery photo 10">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="10">
+                <img src="./images/GalleryPhoto11.jpg" alt="Gallery photo 11">
+              </button>
+              <button class="photo-tile" type="button" data-photo-index="11">
+                <img src="./images/GalleryPhoto12.jpg" alt="Gallery photo 12">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shows-section" id="shows">
+        <h2 class="shows-title">SHOWS</h2>
+
+        <div class="shows-group">
+          <h3 class="shows-subtitle">UPCOMING</h3>
+          <p class="no-dates">No upcoming shows at the moment</p>
+        </div>
+
+        <div class="shows-group">
+          <button class="shows-toggle" id="previousToggle" type="button" aria-expanded="false" aria-controls="previousShows">
+            <span>PREVIOUS</span>
+            <span class="shows-toggle-icon">▾</span>
+          </button>
+
+          <div class="shows-collapsible" id="previousShows">
+            <div class="show-row"><div class="show-info"><span class="show-day">15.11.2025</span><span class="show-location">Nürnberg, DE</span><span class="show-venue">Luise</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">11.10.2025</span><span class="show-location">Penzberg, DE</span><span class="show-venue">JUZE</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">14.06.2025</span><span class="show-location">Würzburg, DE</span><span class="show-venue">b-hof</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">05.04.2025</span><span class="show-location">Königsbrunn, DE</span><span class="show-venue">Mammut Festival</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">30.11.2024</span><span class="show-location">Heidenheim, DE</span><span class="show-venue">Treff 9</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">19.10.2024</span><span class="show-location">Nürnberg, DE</span><span class="show-venue">Luise</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">11.05.2024</span><span class="show-location">Schwäbisch Hall, DE</span><span class="show-venue">Club Alpha 60</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">10.05.2024</span><span class="show-location">Dustelkingen, DE</span><span class="show-venue">Heavydays Festival</span></div></div>
+            <div class="show-row"><div class="show-info"><span class="show-day">28.10.2023</span><span class="show-location">Würzburg, DE</span><span class="show-venue">b-hof</span></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="./impressum.html">IMPRESSUM</a>
+      <a href="./datenschutz.html">DATENSCHUTZ</a>
+    </footer>
+  </div>
+
+  <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+    <button class="photo-lightbox-close" id="photoLightboxClose" aria-label="Close photo view">✕</button>
+
+    <button class="photo-lightbox-arrow photo-lightbox-arrow-left" id="photoLightboxPrev" aria-label="Previous photo">
+      <span>‹</span>
+    </button>
+
+    <div class="photo-lightbox-content">
+      <img id="photoLightboxImage" src="" alt="Expanded gallery photo">
+    </div>
+
+    <button class="photo-lightbox-arrow photo-lightbox-arrow-right" id="photoLightboxNext" aria-label="Next photo">
+      <span>›</span>
+    </button>
+  </div>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    const heroVideo = document.getElementById("heroVideo");
+
+    const bigLogo = document.querySelector(".logo-big");
+    const selectionBar = document.getElementById("selectionBar");
+    const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
+    const header = document.querySelector(".header");
+
+    const sections = {
+      shop: document.getElementById("shop"),
+      media: document.getElementById("media"),
+      shows: document.getElementById("shows")
+    };
+
+    const previousToggle = document.getElementById("previousToggle");
+    const previousShows = document.getElementById("previousShows");
+
+    const swipeFrames = document.querySelectorAll(".product-image-frame.has-two-images");
+
+    const mediaViewport = document.getElementById("mediaViewport");
+    const mediaTrack = document.getElementById("mediaTrack");
+    const mediaPrev = document.getElementById("mediaPrev");
+    const mediaNext = document.getElementById("mediaNext");
+
+    const photosToggle = document.getElementById("photosToggle");
+    const morePhotos = document.getElementById("morePhotos");
+    const photoTiles = document.querySelectorAll(".photo-tile");
+    const photoLightbox = document.getElementById("photoLightbox");
+    const photoLightboxImage = document.getElementById("photoLightboxImage");
+    const photoLightboxClose = document.getElementById("photoLightboxClose");
+    const photoLightboxPrev = document.getElementById("photoLightboxPrev");
+    const photoLightboxNext = document.getElementById("photoLightboxNext");
+
+    const galleryImages = Array.from({ length: 12 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpg`);
+    let currentPhotoIndex = 0;
+
+    let fadeEnd = 0;
+    let mediaSetWidth = 0;
+    let mediaCardStep = 0;
+    let mediaOriginalCount = 0;
+    let mediaRecenterScheduled = false;
+    let mediaLoopReady = false;
+
+    function setMenuState(isOpen) {
+      sideMenu.classList.toggle("open", isOpen);
+      sideMenu.setAttribute("aria-hidden", String(!isOpen));
+      overlay.classList.toggle("show", isOpen);
+    }
+
+    function tryAutoplayVideo() {
+      if (!heroVideo) return;
+
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+
+      const playPromise = heroVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    }
+
+    function updateSelectionBarPosition() {
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
+      const barHeight = selectionBar.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const naturalTop = headerHeight - scrollY;
+
+      selectionBar.classList.remove("stick-bottom", "stick-top");
+      selectionBarPlaceholder.classList.remove("active");
+
+      if (naturalTop > viewportHeight - barHeight) {
+        selectionBar.classList.add("stick-bottom");
+        selectionBarPlaceholder.classList.add("active");
+      } else if (naturalTop <= 0) {
+        selectionBar.classList.add("stick-top");
+        selectionBarPlaceholder.classList.add("active");
+      }
+    }
+
+    function revealShopOnFirstScroll() {
+      if (window.scrollY > 0) {
+        sections.shop.classList.add("revealed");
+      }
+    }
+
+    function setInitialLogoSetup() {
+      updateSelectionBarPosition();
+      const initialBarTop = selectionBar.getBoundingClientRect().top;
+      bigLogo.style.top = (initialBarTop / 2) + "px";
+      fadeEnd = Math.max(initialBarTop, 1);
+    }
+
+    function updateLogoOpacity() {
+      const scrollY = window.scrollY;
+      let opacity = 1 - (scrollY / fadeEnd);
+      opacity = Math.max(0, Math.min(1, opacity));
+      bigLogo.style.opacity = opacity;
+    }
+
+    function handleScrollEffects() {
+      updateSelectionBarPosition();
+      updateLogoOpacity();
+      revealShopOnFirstScroll();
+    }
+
+    function scrollToSection(section) {
+      const barHeight = selectionBar.offsetHeight;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth"
+      });
+    }
+
+    function goToHero(event) {
+      event.preventDefault();
+      setMenuState(false);
+
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function bindSectionLinks(selector, section) {
+      document.querySelectorAll(selector).forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          setMenuState(false);
+          scrollToSection(section);
+        });
+      });
+    }
+
+    function togglePreviousShows() {
+      const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        previousToggle.setAttribute("aria-expanded", "false");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+
+        requestAnimationFrame(() => {
+          previousShows.style.maxHeight = "0px";
+          previousShows.classList.remove("open");
+        });
+      } else {
+        previousToggle.setAttribute("aria-expanded", "true");
+        previousShows.classList.add("open");
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
+    function syncPreviousHeight() {
+      if (previousToggle.getAttribute("aria-expanded") === "true") {
+        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+      }
+    }
+
+    function toggleMorePhotos() {
+      const isOpen = photosToggle.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        photosToggle.setAttribute("aria-expanded", "false");
+        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+
+        requestAnimationFrame(() => {
+          morePhotos.style.maxHeight = "0px";
+          morePhotos.classList.remove("open");
+        });
+      } else {
+        photosToggle.setAttribute("aria-expanded", "true");
+        morePhotos.classList.add("open");
+        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+      }
+    }
+
+    function syncMorePhotosHeight() {
+      if (photosToggle.getAttribute("aria-expanded") === "true") {
+        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+      }
+    }
+
+    function updateMediaMetrics() {
+      if (!mediaTrack) return;
+
+      const firstCard = mediaTrack.querySelector(".media-card");
+      if (!firstCard || !mediaOriginalCount) return;
+
+      const trackStyle = window.getComputedStyle(mediaTrack);
+      const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
+
+      mediaCardStep = firstCard.getBoundingClientRect().width + gap;
+      mediaSetWidth = mediaTrack.scrollWidth / 7;
+    }
+
+    function setupMediaLoop() {
+      if (!mediaTrack || mediaTrack.dataset.loopReady === "true") return;
+
+      const originals = Array.from(mediaTrack.children);
+      mediaOriginalCount = originals.length;
+
+      const clonesA = originals.map(card => card.cloneNode(true));
+      const clonesB = originals.map(card => card.cloneNode(true));
+      const clonesC = originals.map(card => card.cloneNode(true));
+      const clonesD = originals.map(card => card.cloneNode(true));
+      const clonesE = originals.map(card => card.cloneNode(true));
+      const clonesF = originals.map(card => card.cloneNode(true));
+
+      mediaTrack.replaceChildren(
+        ...clonesA,
+        ...clonesB,
+        ...clonesC,
+        ...originals,
+        ...clonesD,
+        ...clonesE,
+        ...clonesF
+      );
+
+      mediaTrack.dataset.loopReady = "true";
+
+      requestAnimationFrame(() => {
+        updateMediaMetrics();
+        mediaViewport.scrollLeft = mediaSetWidth * 3;
+
+        requestAnimationFrame(() => {
+          mediaLoopReady = true;
+        });
+      });
+    }
+
+    function keepMediaLoopCentered() {
+      if (!mediaLoopReady || !mediaSetWidth || mediaRecenterScheduled) return;
+
+      const current = mediaViewport.scrollLeft;
+      const safeStart = mediaSetWidth * 1.5;
+      const safeEnd = mediaSetWidth * 4.5;
+
+      if (current < safeStart || current > safeEnd) {
+        mediaRecenterScheduled = true;
+
+        requestAnimationFrame(() => {
+          const offsetInsideSet =
+            ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
+
+          mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+          mediaRecenterScheduled = false;
+        });
+      }
+    }
+
+    function scrollMediaBy(direction) {
+      mediaViewport.scrollBy({
+        left: mediaCardStep * direction,
+        behavior: "smooth"
+      });
+    }
+
+    function openPhotoLightbox(index) {
+      currentPhotoIndex = index;
+      photoLightboxImage.src = galleryImages[currentPhotoIndex];
+      photoLightbox.classList.add("show");
+      photoLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePhotoLightbox() {
+      photoLightbox.classList.remove("show");
+      photoLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function showPreviousPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
+      photoLightboxImage.src = galleryImages[currentPhotoIndex];
+    }
+
+    function showNextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
+      photoLightboxImage.src = galleryImages[currentPhotoIndex];
+    }
+
+    setMenuState(false);
+
+    menuButton.addEventListener("click", () => setMenuState(true));
+    overlay.addEventListener("click", () => setMenuState(false));
+
+    document.querySelectorAll(".home-link").forEach(link => {
+      link.addEventListener("click", goToHero);
+    });
+
+    bindSectionLinks(".shop-link", sections.shop);
+    bindSectionLinks(".media-link", sections.media);
+    bindSectionLinks(".shows-link", sections.shows);
+
+    previousToggle.addEventListener("click", togglePreviousShows);
+    photosToggle.addEventListener("click", toggleMorePhotos);
+
+    mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
+    mediaNext.addEventListener("click", () => scrollMediaBy(1));
+    mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
+
+    photoTiles.forEach(tile => {
+      tile.addEventListener("click", () => {
+        openPhotoLightbox(Number(tile.dataset.photoIndex));
+      });
+    });
+
+    photoLightboxClose.addEventListener("click", closePhotoLightbox);
+    photoLightboxPrev.addEventListener("click", showPreviousPhoto);
+    photoLightboxNext.addEventListener("click", showNextPhoto);
+
+    photoLightbox.addEventListener("click", event => {
+      if (event.target === photoLightbox) {
+        closePhotoLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!photoLightbox.classList.contains("show")) return;
+
+      if (event.key === "Escape") closePhotoLightbox();
+      if (event.key === "ArrowLeft") showPreviousPhoto();
+      if (event.key === "ArrowRight") showNextPhoto();
+    });
+
+    window.addEventListener("scroll", handleScrollEffects, { passive: true });
+
+    swipeFrames.forEach(frame => {
+      const viewport = frame.querySelector(".product-image-viewport");
+      const dots = frame.querySelectorAll(".dot");
+
+      viewport.addEventListener("scroll", () => {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        const secondActive = viewport.scrollLeft > maxScroll / 2;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[secondActive ? 1 : 0].classList.add("active");
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      tryAutoplayVideo();
+      setupMediaLoop();
+
+      requestAnimationFrame(() => {
+        setInitialLogoSetup();
+        bigLogo.style.visibility = "visible";
+        bigLogo.style.opacity = "0";
+        revealShopOnFirstScroll();
+        syncPreviousHeight();
+        syncMorePhotosHeight();
 
         setTimeout(() => {
           updateLogoOpacity();
@@ -614,6 +1367,7 @@
       updateSelectionBarPosition();
       updateLogoOpacity();
       syncPreviousHeight();
+      syncMorePhotosHeight();
 
       if (mediaTrack?.dataset.loopReady === "true") {
         const offsetInsideSet = mediaSetWidth
