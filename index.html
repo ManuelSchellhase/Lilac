@@ -333,7 +333,7 @@
           </div>
 
           <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
-            <span>MORE</span>
+            <span class="photos-toggle-text">MORE</span>
             <span class="photos-toggle-icon">▾</span>
           </button>
         </div>
@@ -426,7 +426,7 @@
     const photoLightboxPrev = document.getElementById("photoLightboxPrev");
     const photoLightboxNext = document.getElementById("photoLightboxNext");
 
-    const galleryImages = Array.from({ length: 12 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpg`);
+    const galleryImages = Array.from({ length: 12 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpeg`);
     let currentPhotoIndex = 0;
 
     let fadeEnd = 0;
@@ -559,25 +559,31 @@
     }
 
     function toggleMorePhotos() {
-      const isOpen = photosToggle.getAttribute("aria-expanded") === "true";
-      const toggleText = photosToggle.querySelector(".photos-toggle-text");
+  const isOpen = photosToggle.getAttribute("aria-expanded") === "true";
+  const toggleText = document.querySelector(".photos-toggle-text");
 
-      if (isOpen) {
-        photosToggle.setAttribute("aria-expanded", "false");
-        toggleText.textContent = "MORE";
-        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+  if (isOpen) {
+    photosToggle.setAttribute("aria-expanded", "false");
+    morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
 
-        requestAnimationFrame(() => {
-          morePhotos.style.maxHeight = "0px";
-          morePhotos.classList.remove("open");
-        });
-      } else {
-        photosToggle.setAttribute("aria-expanded", "true");
-        toggleText.textContent = "LESS";
-        morePhotos.classList.add("open");
-        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
-      }
-    } 
+    requestAnimationFrame(() => {
+      morePhotos.style.maxHeight = "0px";
+      morePhotos.classList.remove("open");
+    });
+
+    if (toggleText) {
+      toggleText.textContent = "MORE";
+    }
+  } else {
+    photosToggle.setAttribute("aria-expanded", "true");
+    morePhotos.classList.add("open");
+    morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+
+    if (toggleText) {
+      toggleText.textContent = "LESS";
+    }
+  }
+}
 
     function syncMorePhotosHeight() {
       if (photosToggle.getAttribute("aria-expanded") === "true") {
@@ -661,12 +667,34 @@
     }
 
     function openPhotoLightbox(index) {
-      currentPhotoIndex = index;
-      photoLightboxImage.src = galleryImages[currentPhotoIndex];
-      photoLightbox.classList.add("show");
-      photoLightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
+  currentPhotoIndex = index;
+  updateLightboxImage();
+  photoLightbox.classList.add("show");
+  photoLightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closePhotoLightbox() {
+  photoLightbox.classList.remove("show");
+  photoLightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function updateLightboxImage() {
+  const src = galleryImages[currentPhotoIndex];
+  photoLightboxImage.src = src;
+  photoLightboxImage.alt = `Expanded gallery photo ${currentPhotoIndex + 1}`;
+}
+
+function showPreviousPhoto() {
+  currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
+  updateLightboxImage();
+}
+
+function showNextPhoto() {
+  currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
+  updateLightboxImage();
+}
 
     function closePhotoLightbox() {
       photoLightbox.classList.remove("show");
