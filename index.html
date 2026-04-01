@@ -303,11 +303,6 @@
             </button>
           </div>
 
-          <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
-            <span>MORE</span>
-            <span class="photos-toggle-icon">▾</span>
-          </button>
-
           <div class="photos-collapsible" id="morePhotos">
             <div class="photo-grid photo-grid-more">
               <button class="photo-tile" type="button" data-photo-index="4">
@@ -336,6 +331,11 @@
               </button>
             </div>
           </div>
+
+          <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
+            <span>MORE</span>
+            <span class="photos-toggle-icon">▾</span>
+          </button>
         </div>
       </section>
 
@@ -560,9 +560,11 @@
 
     function toggleMorePhotos() {
       const isOpen = photosToggle.getAttribute("aria-expanded") === "true";
+      const toggleText = photosToggle.querySelector(".photos-toggle-text");
 
       if (isOpen) {
         photosToggle.setAttribute("aria-expanded", "false");
+        toggleText.textContent = "MORE";
         morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
 
         requestAnimationFrame(() => {
@@ -571,10 +573,11 @@
         });
       } else {
         photosToggle.setAttribute("aria-expanded", "true");
+        toggleText.textContent = "LESS";
         morePhotos.classList.add("open");
         morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
       }
-    }
+    } 
 
     function syncMorePhotosHeight() {
       if (photosToggle.getAttribute("aria-expanded") === "true") {
