@@ -368,17 +368,6 @@ body {
   margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
-.media-photos-title {
-  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
-  color: white;
-  font-family: font;
-  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
-  font-weight: normal;
-  line-height: 1;
-  text-align: center;
-  letter-spacing: 0.06em;
-}
-
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
