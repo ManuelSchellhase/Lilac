@@ -286,55 +286,67 @@
         </div>
 
         <div class="media-photos-section">
-          <div class="photo-grid photo-grid-preview">
-            <button class="photo-tile" type="button" data-photo-index="0">
-              <img src="./images/GalleryPhoto1.jpeg" alt="Gallery photo 1">
-            </button>
-            <button class="photo-tile" type="button" data-photo-index="1">
-              <img src="./images/GalleryPhoto2.jpeg" alt="Gallery photo 2">
-            </button>
-            <button class="photo-tile" type="button" data-photo-index="2">
-              <img src="./images/GalleryPhoto3.jpeg" alt="Gallery photo 3">
-            </button>
-            <button class="photo-tile" type="button" data-photo-index="3">
-              <img src="./images/GalleryPhoto4.jpeg" alt="Gallery photo 4">
-            </button>
-          </div>
+  <div class="photo-grid photo-grid-preview">
+    <button class="photo-tile" type="button" data-photo-index="0">
+      <img src="./images/GalleryPhoto1.jpeg" alt="Gallery photo 1">
+    </button>
+    <button class="photo-tile" type="button" data-photo-index="1">
+      <img src="./images/GalleryPhoto2.jpeg" alt="Gallery photo 2">
+    </button>
+    <button class="photo-tile" type="button" data-photo-index="2">
+      <img src="./images/GalleryPhoto3.jpeg" alt="Gallery photo 3">
+    </button>
+    <button class="photo-tile" type="button" data-photo-index="3">
+      <img src="./images/GalleryPhoto4.jpeg" alt="Gallery photo 4">
+    </button>
+  </div>
 
-          <div class="photos-collapsible" id="morePhotos">
-            <div class="photo-grid photo-grid-more">
-              <button class="photo-tile" type="button" data-photo-index="4">
-                <img src="./images/GalleryPhoto5.jpeg" alt="Gallery photo 5">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="5">
-                <img src="./images/GalleryPhoto6.jpeg" alt="Gallery photo 6">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="6">
-                <img src="./images/GalleryPhoto7.jpeg" alt="Gallery photo 7">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="7">
-                <img src="./images/GalleryPhoto8.jpeg" alt="Gallery photo 8">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="8">
-                <img src="./images/GalleryPhoto9.jpeg" alt="Gallery photo 9">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="9">
-                <img src="./images/GalleryPhoto10.jpeg" alt="Gallery photo 10">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="10">
-                <img src="./images/GalleryPhoto11.jpeg" alt="Gallery photo 11">
-              </button>
-              <button class="photo-tile" type="button" data-photo-index="11">
-                <img src="./images/GalleryPhoto12.jpeg" alt="Gallery photo 12">
-              </button>
-            </div>
-          </div>
+  <div class="photos-collapsible" id="morePhotos">
+    <div class="photo-grid photo-grid-more">
+      <button class="photo-tile" type="button" data-photo-index="4">
+        <img src="./images/GalleryPhoto5.jpeg" alt="Gallery photo 5">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="5">
+        <img src="./images/GalleryPhoto6.jpeg" alt="Gallery photo 6">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="6">
+        <img src="./images/GalleryPhoto7.jpeg" alt="Gallery photo 7">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="7">
+        <img src="./images/GalleryPhoto8.jpeg" alt="Gallery photo 8">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="8">
+        <img src="./images/GalleryPhoto9.jpeg" alt="Gallery photo 9">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="9">
+        <img src="./images/GalleryPhoto10.jpeg" alt="Gallery photo 10">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="10">
+        <img src="./images/GalleryPhoto11.jpeg" alt="Gallery photo 11">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="11">
+        <img src="./images/GalleryPhoto12.jpeg" alt="Gallery photo 12">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="12">
+        <img src="./images/GalleryPhoto13.jpeg" alt="Gallery photo 13">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="13">
+        <img src="./images/GalleryPhoto14.jpeg" alt="Gallery photo 14">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="14">
+        <img src="./images/GalleryPhoto15.jpeg" alt="Gallery photo 15">
+      </button>
+      <button class="photo-tile" type="button" data-photo-index="15">
+        <img src="./images/GalleryPhoto16.jpeg" alt="Gallery photo 16">
+      </button>
+    </div>
+  </div>
 
-          <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
-            <span class="photos-toggle-text">MORE</span>
-            <span class="photos-toggle-icon">▾</span>
-          </button>
-        </div>
+  <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
+    <span class="photos-toggle-text">MORE</span>
+    <span class="photos-toggle-icon">▾</span>
+  </button>
+</div>
       </section>
 
       <section class="shows-section" id="shows">
@@ -424,7 +436,7 @@
     const photoLightboxPrev = document.getElementById("photoLightboxPrev");
     const photoLightboxNext = document.getElementById("photoLightboxNext");
 
-    const galleryImages = Array.from({ length: 12 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpeg`);
+    const galleryImages = Array.from({ length: 16 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpeg`);
     let currentPhotoIndex = 0;
 
     let fadeEnd = 0;
@@ -433,6 +445,8 @@
     let mediaOriginalCount = 0;
     let mediaRecenterScheduled = false;
     let mediaLoopReady = false;
+    let lightboxTouchStartX = 0;
+    let lightboxTouchEndX = 0;
 
     function setMenuState(isOpen) {
       sideMenu.classList.toggle("open", isOpen);
@@ -694,22 +708,6 @@ function showNextPhoto() {
   updateLightboxImage();
 }
 
-    function closePhotoLightbox() {
-      photoLightbox.classList.remove("show");
-      photoLightbox.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    function showPreviousPhoto() {
-      currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
-      photoLightboxImage.src = galleryImages[currentPhotoIndex];
-    }
-
-    function showNextPhoto() {
-      currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
-      photoLightboxImage.src = galleryImages[currentPhotoIndex];
-    }
-
     setMenuState(false);
 
     menuButton.addEventListener("click", () => setMenuState(true));
@@ -745,6 +743,23 @@ function showNextPhoto() {
         closePhotoLightbox();
       }
     });
+
+    photoLightbox.addEventListener("touchstart", event => {
+  lightboxTouchStartX = event.changedTouches[0].clientX;
+}, { passive: true });
+
+photoLightbox.addEventListener("touchend", event => {
+  lightboxTouchEndX = event.changedTouches[0].clientX;
+  const swipeDistance = lightboxTouchEndX - lightboxTouchStartX;
+
+  if (Math.abs(swipeDistance) < 40) return;
+
+  if (swipeDistance > 0) {
+    showPreviousPhoto();
+  } else {
+    showNextPhoto();
+  }
+}, { passive: true });
 
     document.addEventListener("keydown", event => {
       if (!photoLightbox.classList.contains("show")) return;
