@@ -401,7 +401,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   width: 100%;
   margin: clamp(1rem, 2.2vw, 1.25rem) 0 0;
   padding: 0;
@@ -409,7 +409,7 @@ body {
   background: none;
   color: white;
   font-family: font;
-  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-size: clamp(1.08rem, 1.65vw, 1.22rem);
   font-weight: normal;
   line-height: 1;
   letter-spacing: 0.06em;
