@@ -492,6 +492,27 @@ body {
   opacity: 1;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem 3rem;
+  background-color: #171717;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
+  font-family: font;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.site-footer a:hover {
+  opacity: 1;
+}
+
 /* =========================
    SELECTION BAR
 ========================= */
