@@ -264,16 +264,6 @@ body {
   object-fit: cover;
 }
 
-.media-carousel-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(to right, rgba(23, 23, 23, 0.55), rgba(23, 23, 23, 0.2), rgba(23, 23, 23, 0.55)),
-    rgba(0, 0, 0, 0.12);
-}
-
 .media-carousel-viewport {
   position: absolute;
   inset: 0;
