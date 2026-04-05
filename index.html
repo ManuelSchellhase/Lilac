@@ -37,7 +37,7 @@
     <div class="selection-bar-placeholder" id="selectionBarPlaceholder"></div>
 
     <div class="selection-bar" id="selectionBar">
-      <button class="menu-button" id="menuButton" aria-label="Open menu">
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open menu">
         <img src="./images/MenuButton.svg" class="menu-button-icon" alt="">
       </button>
 
@@ -75,7 +75,7 @@
           <a href="#" class="shows-link">SHOWS</a>
         </nav>
 
-        <div class="side-menu-socials" aria-label="Social links">
+        <nav class="side-menu-socials" aria-label="Social links">
           <a
             href="https://www.instagram.com/lilac.deathcore?igsh=aXcycXFjeWhiNGc="
             target="_blank"
@@ -102,7 +102,7 @@
           >
             <img src="./images/AppleIconSM.svg" alt="Apple Music">
           </a>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -225,7 +225,7 @@
             <source src="./videos/Lilac Media Video.mp4" type="video/mp4">
           </video>
 
-          <button class="media-arrow media-arrow-left" id="mediaPrev" aria-label="Previous video">
+          <button class="media-arrow media-arrow-left" id="mediaPrev" type="button" aria-label="Previous video">
             <span>‹</span>
           </button>
 
@@ -278,73 +278,47 @@
             </div>
           </div>
 
-          <button class="media-arrow media-arrow-right" id="mediaNext" aria-label="Next video">
+          <button class="media-arrow media-arrow-right" id="mediaNext" type="button" aria-label="Next video">
             <span>›</span>
           </button>
         </div>
 
         <div class="media-photos-section">
-  <div class="photo-grid photo-grid-preview">
-    <button class="photo-tile" type="button" data-photo-index="0">
-      <img src="./images/GalleryPhoto1.jpeg" alt="Gallery photo 1">
-    </button>
-    <button class="photo-tile" type="button" data-photo-index="1">
-      <img src="./images/GalleryPhoto2.jpeg" alt="Gallery photo 2">
-    </button>
-    <button class="photo-tile" type="button" data-photo-index="2">
-      <img src="./images/GalleryPhoto3.jpeg" alt="Gallery photo 3">
-    </button>
-    <button class="photo-tile" type="button" data-photo-index="3">
-      <img src="./images/GalleryPhoto4.jpeg" alt="Gallery photo 4">
-    </button>
-  </div>
+          <div class="photo-grid photo-grid-preview">
+            <button class="photo-tile" type="button" data-photo-index="0"><img src="./images/GalleryPhoto1.jpeg" alt="Gallery photo 1"></button>
+            <button class="photo-tile" type="button" data-photo-index="1"><img src="./images/GalleryPhoto2.jpeg" alt="Gallery photo 2"></button>
+            <button class="photo-tile" type="button" data-photo-index="2"><img src="./images/GalleryPhoto3.jpeg" alt="Gallery photo 3"></button>
+            <button class="photo-tile" type="button" data-photo-index="3"><img src="./images/GalleryPhoto4.jpeg" alt="Gallery photo 4"></button>
+          </div>
 
-  <div class="photos-collapsible" id="morePhotos">
-    <div class="photo-grid photo-grid-more">
-      <button class="photo-tile" type="button" data-photo-index="4">
-        <img src="./images/GalleryPhoto5.jpeg" alt="Gallery photo 5">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="5">
-        <img src="./images/GalleryPhoto6.jpeg" alt="Gallery photo 6">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="6">
-        <img src="./images/GalleryPhoto7.jpeg" alt="Gallery photo 7">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="7">
-        <img src="./images/GalleryPhoto8.jpeg" alt="Gallery photo 8">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="8">
-        <img src="./images/GalleryPhoto9.jpeg" alt="Gallery photo 9">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="9">
-        <img src="./images/GalleryPhoto10.jpeg" alt="Gallery photo 10">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="10">
-        <img src="./images/GalleryPhoto11.jpeg" alt="Gallery photo 11">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="11">
-        <img src="./images/GalleryPhoto12.jpeg" alt="Gallery photo 12">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="12">
-        <img src="./images/GalleryPhoto13.jpeg" alt="Gallery photo 13">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="13">
-        <img src="./images/GalleryPhoto14.jpeg" alt="Gallery photo 14">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="14">
-        <img src="./images/GalleryPhoto15.jpeg" alt="Gallery photo 15">
-      </button>
-      <button class="photo-tile" type="button" data-photo-index="15">
-        <img src="./images/GalleryPhoto16.jpeg" alt="Gallery photo 16">
-      </button>
-    </div>
-  </div>
+          <div class="photos-collapsible" id="morePhotos">
+            <div class="photo-grid photo-grid-more">
+              <button class="photo-tile" type="button" data-photo-index="4"><img src="./images/GalleryPhoto5.jpeg" alt="Gallery photo 5"></button>
+              <button class="photo-tile" type="button" data-photo-index="5"><img src="./images/GalleryPhoto6.jpeg" alt="Gallery photo 6"></button>
+              <button class="photo-tile" type="button" data-photo-index="6"><img src="./images/GalleryPhoto7.jpeg" alt="Gallery photo 7"></button>
+              <button class="photo-tile" type="button" data-photo-index="7"><img src="./images/GalleryPhoto8.jpeg" alt="Gallery photo 8"></button>
+              <button class="photo-tile" type="button" data-photo-index="8"><img src="./images/GalleryPhoto9.jpeg" alt="Gallery photo 9"></button>
+              <button class="photo-tile" type="button" data-photo-index="9"><img src="./images/GalleryPhoto10.jpeg" alt="Gallery photo 10"></button>
+              <button class="photo-tile" type="button" data-photo-index="10"><img src="./images/GalleryPhoto11.jpeg" alt="Gallery photo 11"></button>
+              <button class="photo-tile" type="button" data-photo-index="11"><img src="./images/GalleryPhoto12.jpeg" alt="Gallery photo 12"></button>
+              <button class="photo-tile" type="button" data-photo-index="12"><img src="./images/GalleryPhoto13.jpeg" alt="Gallery photo 13"></button>
+              <button class="photo-tile" type="button" data-photo-index="13"><img src="./images/GalleryPhoto14.jpeg" alt="Gallery photo 14"></button>
+              <button class="photo-tile" type="button" data-photo-index="14"><img src="./images/GalleryPhoto15.jpeg" alt="Gallery photo 15"></button>
+              <button class="photo-tile" type="button" data-photo-index="15"><img src="./images/GalleryPhoto16.jpeg" alt="Gallery photo 16"></button>
+            </div>
+          </div>
 
-  <button class="photos-toggle" id="photosToggle" type="button" aria-expanded="false" aria-controls="morePhotos">
-    <span class="photos-toggle-text">MORE</span>
-    <span class="photos-toggle-icon">▾</span>
-  </button>
-</div>
+          <button
+            class="photos-toggle"
+            id="photosToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="morePhotos"
+          >
+            <span class="photos-toggle-text">MORE</span>
+            <span class="photos-toggle-icon">▾</span>
+          </button>
+        </div>
       </section>
 
       <section class="shows-section" id="shows">
@@ -356,7 +330,13 @@
         </div>
 
         <div class="shows-group">
-          <button class="shows-toggle" id="previousToggle" type="button" aria-expanded="false" aria-controls="previousShows">
+          <button
+            class="shows-toggle"
+            id="previousToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="previousShows"
+          >
             <span>PREVIOUS</span>
             <span class="shows-toggle-icon">▾</span>
           </button>
@@ -383,9 +363,9 @@
   </div>
 
   <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
-    <button class="photo-lightbox-close" id="photoLightboxClose" aria-label="Close photo view">✕</button>
+    <button class="photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="Close photo view">✕</button>
 
-    <button class="photo-lightbox-arrow photo-lightbox-arrow-left" id="photoLightboxPrev" aria-label="Previous photo">
+    <button class="photo-lightbox-arrow photo-lightbox-arrow-left" id="photoLightboxPrev" type="button" aria-label="Previous photo">
       <span>‹</span>
     </button>
 
@@ -393,7 +373,7 @@
       <img id="photoLightboxImage" src="" alt="Expanded gallery photo">
     </div>
 
-    <button class="photo-lightbox-arrow photo-lightbox-arrow-right" id="photoLightboxNext" aria-label="Next photo">
+    <button class="photo-lightbox-arrow photo-lightbox-arrow-right" id="photoLightboxNext" type="button" aria-label="Next photo">
       <span>›</span>
     </button>
   </div>
@@ -405,9 +385,9 @@
     const heroVideo = document.getElementById("heroVideo");
 
     const bigLogo = document.querySelector(".logo-big");
+    const header = document.querySelector(".header");
     const selectionBar = document.getElementById("selectionBar");
     const selectionBarPlaceholder = document.getElementById("selectionBarPlaceholder");
-    const header = document.querySelector(".header");
 
     const sections = {
       shop: document.getElementById("shop"),
@@ -428,6 +408,7 @@
     const photosToggle = document.getElementById("photosToggle");
     const morePhotos = document.getElementById("morePhotos");
     const photoTiles = document.querySelectorAll(".photo-tile");
+
     const photoLightbox = document.getElementById("photoLightbox");
     const photoLightboxImage = document.getElementById("photoLightboxImage");
     const photoLightboxClose = document.getElementById("photoLightboxClose");
@@ -435,8 +416,8 @@
     const photoLightboxNext = document.getElementById("photoLightboxNext");
 
     const galleryImages = Array.from({ length: 16 }, (_, index) => `./images/GalleryPhoto${index + 1}.jpeg`);
-    let currentPhotoIndex = 0;
 
+    let currentPhotoIndex = 0;
     let fadeEnd = 0;
     let mediaSetWidth = 0;
     let mediaCardStep = 0;
@@ -444,7 +425,10 @@
     let mediaRecenterScheduled = false;
     let mediaLoopReady = false;
     let lightboxTouchStartX = 0;
-    let lightboxTouchEndX = 0;
+
+    function clearHash() {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
 
     function setMenuState(isOpen) {
       sideMenu.classList.toggle("open", isOpen);
@@ -460,7 +444,7 @@
       heroVideo.playsInline = true;
 
       const playPromise = heroVideo.play();
-      if (playPromise && typeof playPromise.catch === "function") {
+      if (playPromise?.catch) {
         playPromise.catch(() => {});
       }
     }
@@ -492,15 +476,14 @@
 
     function setInitialLogoSetup() {
       updateSelectionBarPosition();
+
       const initialBarTop = selectionBar.getBoundingClientRect().top;
-      bigLogo.style.top = (initialBarTop / 2) + "px";
+      bigLogo.style.top = `${initialBarTop / 2}px`;
       fadeEnd = Math.max(initialBarTop, 1);
     }
 
     function updateLogoOpacity() {
-      const scrollY = window.scrollY;
-      let opacity = 1 - (scrollY / fadeEnd);
-      opacity = Math.max(0, Math.min(1, opacity));
+      const opacity = Math.max(0, Math.min(1, 1 - window.scrollY / fadeEnd));
       bigLogo.style.opacity = opacity;
     }
 
@@ -514,7 +497,7 @@
       const barHeight = selectionBar.offsetHeight;
       const sectionTop = section.getBoundingClientRect().top + window.scrollY - barHeight;
 
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+      clearHash();
 
       window.scrollTo({
         top: sectionTop,
@@ -525,8 +508,7 @@
     function goToHero(event) {
       event.preventDefault();
       setMenuState(false);
-
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+      clearHash();
 
       window.scrollTo({
         top: 0,
@@ -544,68 +526,45 @@
       });
     }
 
-    function togglePreviousShows() {
-      const isOpen = previousToggle.getAttribute("aria-expanded") === "true";
+    function toggleCollapsible(button, panel, textElement, closedText, openText) {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
 
       if (isOpen) {
-        previousToggle.setAttribute("aria-expanded", "false");
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+        button.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
 
         requestAnimationFrame(() => {
-          previousShows.style.maxHeight = "0px";
-          previousShows.classList.remove("open");
+          panel.style.maxHeight = "0px";
+          panel.classList.remove("open");
         });
-      } else {
-        previousToggle.setAttribute("aria-expanded", "true");
-        previousShows.classList.add("open");
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
+
+        if (textElement) {
+          textElement.textContent = closedText;
+        }
+
+        return;
+      }
+
+      button.setAttribute("aria-expanded", "true");
+      panel.classList.add("open");
+      panel.style.maxHeight = `${panel.scrollHeight}px`;
+
+      if (textElement) {
+        textElement.textContent = openText;
       }
     }
 
-    function syncPreviousHeight() {
-      if (previousToggle.getAttribute("aria-expanded") === "true") {
-        previousShows.style.maxHeight = previousShows.scrollHeight + "px";
-      }
-    }
-
-    function toggleMorePhotos() {
-  const isOpen = photosToggle.getAttribute("aria-expanded") === "true";
-  const toggleText = document.querySelector(".photos-toggle-text");
-
-  if (isOpen) {
-    photosToggle.setAttribute("aria-expanded", "false");
-    morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
-
-    requestAnimationFrame(() => {
-      morePhotos.style.maxHeight = "0px";
-      morePhotos.classList.remove("open");
-    });
-
-    if (toggleText) {
-      toggleText.textContent = "MORE";
-    }
-  } else {
-    photosToggle.setAttribute("aria-expanded", "true");
-    morePhotos.classList.add("open");
-    morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
-
-    if (toggleText) {
-      toggleText.textContent = "LESS";
-    }
-  }
-}
-
-    function syncMorePhotosHeight() {
-      if (photosToggle.getAttribute("aria-expanded") === "true") {
-        morePhotos.style.maxHeight = morePhotos.scrollHeight + "px";
+    function syncOpenCollapsibleHeight(button, panel) {
+      if (button.getAttribute("aria-expanded") === "true") {
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
       }
     }
 
     function updateMediaMetrics() {
-      if (!mediaTrack) return;
+      if (!mediaTrack || !mediaOriginalCount) return;
 
       const firstCard = mediaTrack.querySelector(".media-card");
-      if (!firstCard || !mediaOriginalCount) return;
+      if (!firstCard) return;
 
       const trackStyle = window.getComputedStyle(mediaTrack);
       const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
@@ -620,23 +579,20 @@
       const originals = Array.from(mediaTrack.children);
       mediaOriginalCount = originals.length;
 
-      const clonesA = originals.map(card => card.cloneNode(true));
-      const clonesB = originals.map(card => card.cloneNode(true));
-      const clonesC = originals.map(card => card.cloneNode(true));
-      const clonesD = originals.map(card => card.cloneNode(true));
-      const clonesE = originals.map(card => card.cloneNode(true));
-      const clonesF = originals.map(card => card.cloneNode(true));
+      const cloneGroupsBefore = 3;
+      const cloneGroupsAfter = 3;
+      const before = [];
+      const after = [];
 
-      mediaTrack.replaceChildren(
-        ...clonesA,
-        ...clonesB,
-        ...clonesC,
-        ...originals,
-        ...clonesD,
-        ...clonesE,
-        ...clonesF
-      );
+      for (let i = 0; i < cloneGroupsBefore; i += 1) {
+        before.push(...originals.map(card => card.cloneNode(true)));
+      }
 
+      for (let i = 0; i < cloneGroupsAfter; i += 1) {
+        after.push(...originals.map(card => card.cloneNode(true)));
+      }
+
+      mediaTrack.replaceChildren(...before, ...originals, ...after);
       mediaTrack.dataset.loopReady = "true";
 
       requestAnimationFrame(() => {
@@ -660,9 +616,7 @@
         mediaRecenterScheduled = true;
 
         requestAnimationFrame(() => {
-          const offsetInsideSet =
-            ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
-
+          const offsetInsideSet = ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth;
           mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
           mediaRecenterScheduled = false;
         });
@@ -676,35 +630,50 @@
       });
     }
 
+    function updateLightboxImage() {
+      photoLightboxImage.src = galleryImages[currentPhotoIndex];
+      photoLightboxImage.alt = `Expanded gallery photo ${currentPhotoIndex + 1}`;
+    }
+
     function openPhotoLightbox(index) {
-  currentPhotoIndex = index;
-  updateLightboxImage();
-  photoLightbox.classList.add("show");
-  photoLightbox.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
+      currentPhotoIndex = index;
+      updateLightboxImage();
+      photoLightbox.classList.add("show");
+      photoLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
 
-function closePhotoLightbox() {
-  photoLightbox.classList.remove("show");
-  photoLightbox.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
+    function closePhotoLightbox() {
+      photoLightbox.classList.remove("show");
+      photoLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
 
-function updateLightboxImage() {
-  const src = galleryImages[currentPhotoIndex];
-  photoLightboxImage.src = src;
-  photoLightboxImage.alt = `Expanded gallery photo ${currentPhotoIndex + 1}`;
-}
+    function showPreviousPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateLightboxImage();
+    }
 
-function showPreviousPhoto() {
-  currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
-  updateLightboxImage();
-}
+    function showNextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
+      updateLightboxImage();
+    }
 
-function showNextPhoto() {
-  currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
-  updateLightboxImage();
-}
+    function handleResize() {
+      updateSelectionBarPosition();
+      updateLogoOpacity();
+      syncOpenCollapsibleHeight(previousToggle, previousShows);
+      syncOpenCollapsibleHeight(photosToggle, morePhotos);
+
+      if (mediaTrack?.dataset.loopReady === "true") {
+        const offsetInsideSet = mediaSetWidth
+          ? ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth
+          : 0;
+
+        updateMediaMetrics();
+        mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
+      }
+    }
 
     setMenuState(false);
 
@@ -719,12 +688,36 @@ function showNextPhoto() {
     bindSectionLinks(".media-link", sections.media);
     bindSectionLinks(".shows-link", sections.shows);
 
-    previousToggle.addEventListener("click", togglePreviousShows);
-    photosToggle.addEventListener("click", toggleMorePhotos);
+    previousToggle.addEventListener("click", () => {
+      toggleCollapsible(previousToggle, previousShows);
+    });
+
+    photosToggle.addEventListener("click", () => {
+      toggleCollapsible(
+        photosToggle,
+        morePhotos,
+        document.querySelector(".photos-toggle-text"),
+        "MORE",
+        "LESS"
+      );
+    });
 
     mediaPrev.addEventListener("click", () => scrollMediaBy(-1));
     mediaNext.addEventListener("click", () => scrollMediaBy(1));
     mediaViewport.addEventListener("scroll", keepMediaLoopCentered, { passive: true });
+
+    swipeFrames.forEach(frame => {
+      const viewport = frame.querySelector(".product-image-viewport");
+      const dots = frame.querySelectorAll(".dot");
+
+      viewport.addEventListener("scroll", () => {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        const secondActive = viewport.scrollLeft > maxScroll / 2;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[secondActive ? 1 : 0].classList.add("active");
+      });
+    });
 
     photoTiles.forEach(tile => {
       tile.addEventListener("click", () => {
@@ -743,21 +736,21 @@ function showNextPhoto() {
     });
 
     photoLightbox.addEventListener("touchstart", event => {
-  lightboxTouchStartX = event.changedTouches[0].clientX;
-}, { passive: true });
+      lightboxTouchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
 
-photoLightbox.addEventListener("touchend", event => {
-  lightboxTouchEndX = event.changedTouches[0].clientX;
-  const swipeDistance = lightboxTouchEndX - lightboxTouchStartX;
+    photoLightbox.addEventListener("touchend", event => {
+      const lightboxTouchEndX = event.changedTouches[0].clientX;
+      const swipeDistance = lightboxTouchEndX - lightboxTouchStartX;
 
-  if (Math.abs(swipeDistance) < 40) return;
+      if (Math.abs(swipeDistance) < 40) return;
 
-  if (swipeDistance > 0) {
-    showPreviousPhoto();
-  } else {
-    showNextPhoto();
-  }
-}, { passive: true });
+      if (swipeDistance > 0) {
+        showPreviousPhoto();
+      } else {
+        showNextPhoto();
+      }
+    }, { passive: true });
 
     document.addEventListener("keydown", event => {
       if (!photoLightbox.classList.contains("show")) return;
@@ -768,19 +761,7 @@ photoLightbox.addEventListener("touchend", event => {
     });
 
     window.addEventListener("scroll", handleScrollEffects, { passive: true });
-
-    swipeFrames.forEach(frame => {
-      const viewport = frame.querySelector(".product-image-viewport");
-      const dots = frame.querySelectorAll(".dot");
-
-      viewport.addEventListener("scroll", () => {
-        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-        const secondActive = viewport.scrollLeft > maxScroll / 2;
-
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[secondActive ? 1 : 0].classList.add("active");
-      });
-    });
+    window.addEventListener("resize", handleResize);
 
     document.addEventListener("DOMContentLoaded", () => {
       tryAutoplayVideo();
@@ -790,13 +771,12 @@ photoLightbox.addEventListener("touchend", event => {
         setInitialLogoSetup();
         bigLogo.style.visibility = "visible";
         bigLogo.style.opacity = "0";
-        revealShopOnFirstScroll();
-        syncPreviousHeight();
-        syncMorePhotosHeight();
 
-        setTimeout(() => {
-          updateLogoOpacity();
-        }, 1200);
+        revealShopOnFirstScroll();
+        syncOpenCollapsibleHeight(previousToggle, previousShows);
+        syncOpenCollapsibleHeight(photosToggle, morePhotos);
+
+        setTimeout(updateLogoOpacity, 1200);
       });
     });
 
@@ -805,22 +785,6 @@ photoLightbox.addEventListener("touchend", event => {
 
     document.addEventListener("touchstart", tryAutoplayVideo, { passive: true });
     document.addEventListener("click", tryAutoplayVideo);
-
-    window.addEventListener("resize", () => {
-      updateSelectionBarPosition();
-      updateLogoOpacity();
-      syncPreviousHeight();
-      syncMorePhotosHeight();
-
-      if (mediaTrack?.dataset.loopReady === "true") {
-        const offsetInsideSet = mediaSetWidth
-          ? ((mediaViewport.scrollLeft % mediaSetWidth) + mediaSetWidth) % mediaSetWidth
-          : 0;
-
-        updateMediaMetrics();
-        mediaViewport.scrollLeft = mediaSetWidth * 3 + offsetInsideSet;
-      }
-    });
   </script>
 </body>
 </html>
